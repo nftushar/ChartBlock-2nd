@@ -1,0 +1,178 @@
+{
+  "apiVersion": "1",
+  "name": "b-blocks/bar-chart",
+  "title": "Bar Chart",
+  "description": "Gutenberg editing with easy-to-use, responsive bar-chart and more.",
+  "category": "media",
+  "keywords": [
+    "bar-chart",
+    "chart",
+    "Gutenberg"
+  ],
+  "textdomain": "bar-chart",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "cId": {
+      "type": "string",
+      "default": ""
+    },
+    "chart": {
+      "type": "object",
+      "default": {
+        "test": "test",
+        "bgColor": [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+          "rgba(255, 159, 64, 0.2)"
+        ],
+        "borderColor": [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)"
+        ],
+        "chartWidth": 95,
+        "type": "Doughnut",
+        "labels": "January",
+        "cValue": 21,
+        "dataLabel": "T-Shirt",
+        "border": 1,
+        "radius":1
+      }
+    },
+    "jsonData": {
+      "type": "array",
+      "default": [
+        {
+          "label": "DataBase JSON 1",
+          "value": 23
+        },
+        {
+          "label": "DataBase JSON 2",
+          "value": 43
+        },
+        {
+          "label": "DataBase JSON 3",
+          "value": 55
+        },
+        {
+          "label": "DataBase JSON 4",
+          "value": 23
+        },
+        {
+          "label": "DataBase JSON 5",
+          "value": 43
+        },
+        {
+          "label": "DataBase JSON 6",
+          "value": 55
+        }
+      ]
+    },
+    "xmlData": {
+      "type": "array",
+      "default": [
+        {
+          "label": "DataBase XML 1",
+          "value": 12
+        },
+        {
+          "label": "DataBase XML 2",
+          "value": 34
+        },
+        {
+          "label": "DataBase XML 2",
+          "value": 34
+        },
+        {
+          "label": "DataBase XML 1",
+          "value": 12
+        },
+        {
+          "label": "DataBase XML 2",
+          "value": 34
+        },
+        {
+          "label": "DataBase XML 2",
+          "value": 34
+        }
+      ]
+    },
+    "csvData": {
+      "type": "array",
+      "default": [
+        {
+          "label": "DataBase Sheets Data",
+          "value": 13
+        },
+        {
+          "label": "DataBase Sheets Data 2",
+          "value": 43
+        },
+        {
+          "label": "DataBase Sheets Data 3",
+          "value": 14
+        },
+        {
+          "label": "DataBase Sheets Data 4",
+          "value": 33
+        },
+        {
+          "label": "DataBase Sheets Data 3",
+          "value": 14
+        },
+        {
+          "label": "DataBase Sheets Data 4",
+          "value": 33
+        }
+      ]
+    },
+    "legend": {
+      "position": {
+        "type": "string",
+        "default": "top",
+        "description": "Choose legend position from the list."
+      },
+      "color": {
+        "type": "string",
+        "default": "#333333",
+        "description": "Set legend text/label color."
+      },
+      "pointStyle": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable or disable legend point style."
+      }
+    },
+    "textShadow": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true,
+      "columns": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    }
+  },
+  "editorScript": "file:../dist/editor.js"
+}

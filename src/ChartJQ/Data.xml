@@ -1,0 +1,14 @@
+<people>
+  <person> 
+    <label>Uploaded XML 1</label>
+    <value>11</value>
+  </person>
+  <person> 
+    <label>Uploaded XML 2</label>
+    <value>44</value>
+  </person>
+  <person> 
+    <label>Uploaded XML 3</label>
+    <value>44</value>
+  </person>
+</people>
