@@ -1,7 +1,7 @@
 import { __ } from "@wordpress/i18n";
 import React, { useState } from 'react';
 import { InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TabPanel, FormFileUpload, SelectControl, RangeControl } from "@wordpress/components";
+import { PanelBody, TabPanel, FormFileUpload, SelectControl, RangeControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
 import { BorderControl, Background } from "../../Components";
 
 
@@ -76,9 +76,11 @@ const readCSVFile = (csv) => {
 
 
 const Settings = ({ attributes, setAttributes, updateChart }) => {
-  
+
   const { jsonData: existingjsonData, xmlData: existingXmlData, csvData: existingCSVData, chart } = attributes;
-  const { type, border, radius, bgColor } = chart;
+ 
+  const { type, border, radius, bgColor, chartWidth, chartHeight } = chart;
+
 
   const [jsonData, setJsonData] = useState(null);
   const [xmlData, setXmlData] = useState(null);
@@ -141,16 +143,40 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
                     labelPosition="left"
                     value={type}
                     options={[
-                      { label: "Bar", value: "Bar" },
                       { label: "Pie", value: "Pie" },
                       { label: "Doughnut", value: "Doughnut" },
                       { label: "PolarArea", value: "PolarArea" },
+                      { label: "Radar", value: "Radar" },
                     ]}
                     onChange={(val) =>
                       setAttributes({
                         chart: { ...chart, type: val },
                       })
                     }
+                  />
+                  <NumberControl
+                   className="mt20"
+                   label={__("Chart Width")}
+                    isShiftStepEnabled={true}
+                    value={chartWidth}
+                    onChange={(val) =>
+                      setAttributes({
+                        chart: { ...chart, chartWidth: val },
+                      })
+                    }
+                    shiftStep={2}
+                  />
+                  <NumberControl
+                   className="mt20"
+                   label={__("Chart Height")}
+                    isShiftStepEnabled={true}
+                    value={chartHeight}
+                    onChange={(val) =>
+                      setAttributes({
+                        chart: { ...chart, chartHeight: val },
+                      })
+                    }
+                    shiftStep={2}
                   />
                   <RangeControl
                     label={__("Border:", "bar-chart")}
@@ -163,7 +189,7 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
                     }
                     defaults={{ radius: "5px" }}
                     min={0}
-                    max={3}
+                    max={10}
                   />
 
                   <RangeControl
@@ -175,9 +201,10 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
                       })
                     }
                     min={0}
-                    max={30}
+                    max={50}
                   />
-                    {/* {console.table(chart)} */}
+
+                  {/* {console.table(chart)} */}
                   {/* {chart.map((item, index) => (
  
                     <React.Fragment key={index}>

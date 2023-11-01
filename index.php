@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Bar Chart
- * Description: Bar Chart Gutenberg plugin: Streamline Gutenberg editing with easy-to-use, responsive bar-chart  and more..
+ * Plugin Name: B Chart
+ * Description: B Chart Gutenberg plugin: Streamline Gutenberg editing with easy-to-use, responsive bar-chart  and more..
  * Version: 1.0.0
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com

@@ -1,24 +1,20 @@
 import { Chart as ChartJS, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
 import { Pie, Doughnut, PolarArea, Radar, Bar } from 'react-chartjs-2';
 
-ChartJS.register( Tooltip, Legend, CategoryScale, LinearScale, Title, Tooltip, Legend);
+ChartJS.register(Tooltip, Legend, CategoryScale, LinearScale, Title, Tooltip, Legend);
 
-
-
-
-
-
+ 
 
 const BarChart = ({ type, data }) => {
   const ChartType =
-    type === 'Doughnut' ? Doughnut :
+    type === 'Bar' ? Bar :
       type === 'PolarArea' ? PolarArea :
-        type === 'Radar' ? Radar :
+        type === 'Doughnut' ? Doughnut :
           type === 'Pie' ? Pie :
-            type === 'Bar' ? Bar : null;
+            type === 'Radar' ? Radar : null;
 
   return (
-    <div className="bBlocksBarChart">
+    <div className="wp-block-b-blocks-b-chart">
       <div className="dataChart revenueChart">
         {ChartType && <ChartType data={data} />}
       </div>

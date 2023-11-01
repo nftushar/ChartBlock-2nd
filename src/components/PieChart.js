@@ -37,7 +37,7 @@ function PieChart() {
         ],
     };
     return (
-        <div className="bBlocksBarChart">
+        <div className="wp-block-b-blocks-b-chart">
             <div className="dataCard revenueCard">
                 <Doughnut data={data} />
             </div>

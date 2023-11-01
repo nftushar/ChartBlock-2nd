@@ -8,7 +8,7 @@ import PieChart from './components/PieChart'
 
 
 const Edit = (props) => {
-  const { className, attributes, setAttributes, clientId } = props;
+  const { className, attributes, setAttributes, clientId, isSelected } = props;
   const { chart } = attributes;
   // console.log(attributes);
 
@@ -26,7 +26,8 @@ const Edit = (props) => {
   return <>
     <Settings attributes={attributes} setAttributes={setAttributes} />
 
-    <div className={className} id={`bBlocksBarChart-${clientId}`}>
+    <div className={className} id={`wp-block-b-blocks-b-chart-${clientId}`}>
+      {!isSelected && <div className="mouse"></div>}
       <Style attributes={attributes} clientId={clientId} />
       {/* <PieChart attributes={attributes} />   */}
       <BarChart attributes={attributes} />
