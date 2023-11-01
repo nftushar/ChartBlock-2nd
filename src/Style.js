@@ -1,10 +1,9 @@
-import { getMultiShadowCSS, getTypoCSS } from "../../Components/utils/getCSS";
+import { getMultiShadowCSS, getTypoCSS, getBackgroundCSS } from "../../Components/utils/getCSS";
 import { getArrFromNum } from "./utils/functions";
-
 const Style = ({ attributes, clientId }) => {
     const { chart, gap, alignment, textTypo, textColor, textShadow } = attributes;
-    const { chartWidth, chartHeight } = chart;
-
+    const { chartWidth, chartHeight, backgroundColor } = chart;
+    // console.log(backgroundColor);
 
     const chartId = `#wp-block-b-blocks-b-chart-${clientId}`;
     const chartSl = `#wp-block-b-blocks-b-chart-${clientId} .wp-block-b-blocks-b-chart .dataChart canvas`;
@@ -20,14 +19,14 @@ const Style = ({ attributes, clientId }) => {
 
           ${chartId} { 
             display:flex; 
-            justify-content: center;
-               
+            justify-content: center; 
             color: ${textColor}; 
           }
 
           ${chartSl}{
             height:  ${chartHeight}px !important;
             width: ${chartWidth}px !important;
+            background-color: ${backgroundColor}; 
           }
        
     `}}

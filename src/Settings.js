@@ -2,7 +2,7 @@ import { __ } from "@wordpress/i18n";
 import React, { useState } from 'react';
 import { InspectorControls } from "@wordpress/block-editor";
 import { PanelBody, TabPanel, FormFileUpload, SelectControl, RangeControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
-import { BorderControl, Background } from "../../Components";
+import { BorderControl, BColor, Background } from "../../Components";
 
 
 
@@ -78,8 +78,8 @@ const readCSVFile = (csv) => {
 const Settings = ({ attributes, setAttributes, updateChart }) => {
 
   const { jsonData: existingjsonData, xmlData: existingXmlData, csvData: existingCSVData, chart } = attributes;
- 
-  const { type, border, radius, bgColor, chartWidth, chartHeight } = chart;
+
+  const { type, border, radius, bgColor, chartWidth, chartHeight, backgroundColor } = chart;
 
 
   const [jsonData, setJsonData] = useState(null);
@@ -155,8 +155,8 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
                     }
                   />
                   <NumberControl
-                   className="mt20"
-                   label={__("Chart Width")}
+                    className="mt20"
+                    label={__("Chart Width")}
                     isShiftStepEnabled={true}
                     value={chartWidth}
                     onChange={(val) =>
@@ -167,8 +167,8 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
                     shiftStep={2}
                   />
                   <NumberControl
-                   className="mt20"
-                   label={__("Chart Height")}
+                    className="mt20"
+                    label={__("Chart Height")}
                     isShiftStepEnabled={true}
                     value={chartHeight}
                     onChange={(val) =>
@@ -203,6 +203,12 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
                     min={0}
                     max={50}
                   />
+                  <BColor label={__('Background Color', 'text-domain')} value={backgroundColor}
+                    onChange={(val) =>
+                      setAttributes({
+                        chart: { ...chart, backgroundColor: val },
+                      })
+                    } defaultColor='#0000' />
 
                   {/* {console.table(chart)} */}
                   {/* {chart.map((item, index) => (

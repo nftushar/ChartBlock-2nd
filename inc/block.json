@@ -25,6 +25,8 @@
         "test": "test",
         "chartHeight": 555,
         "chartWidth": 555,
+        "backgroundColor": "#F8F8F8",
+         
         "bgColor": [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
