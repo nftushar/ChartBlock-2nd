@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import { getExt, readCSVFile } from '../utils/functions';
 
 const useFileData = (file) => {
