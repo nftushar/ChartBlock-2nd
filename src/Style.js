@@ -5,8 +5,8 @@ const Style = ({ attributes, clientId }) => {
     const { chartWidth, chartHeight, backgroundColor } = chart;
     // console.log(backgroundColor);
 
-    const chartId = `#wp-block-b-blocks-b-chart-${clientId}`;
-    const chartSl = `#wp-block-b-blocks-b-chart-${clientId} .wp-block-b-blocks-b-chart .dataChart canvas`;
+    const chartId = `#wp-block-b-blocks-pie-chart-${clientId}`;
+    const chartSl = `#wp-block-b-blocks-pie-chart-${clientId} .wp-block-b-blocks-pie-chart .dataChart canvas`;
     const dataSl = `${chartSl} .dataChart canvas`;
     const intAndDec = (chart + '').split('.');
     const chartInt = parseInt(intAndDec[0]);

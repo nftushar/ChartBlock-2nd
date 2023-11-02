@@ -23,10 +23,10 @@ class BDBBlockDirectory{
         wp_enqueue_script( 'b-blocks-pie-chart-script', plugins_url( 'dist/script.js', __DIR__ ), [ 'react', 'react-dom' ], B_BLOCKS_VERSION, true );
 
 		$className = $className ?? '';
-		$blockClassName = "wp-block-b-blocks-b-chart $className align$align";
+		$blockClassName = "wp-block-b-blocks-pie-chart $className align$align";
 
 		ob_start(); ?>
-		<div class='<?php echo esc_attr( $blockClassName ); ?>' id='bBlocksRating-<?php echo esc_attr( $cId ) ?>' data-attributes='<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>'></div>
+		<div class='<?php echo esc_attr( $blockClassName ); ?>' id='bBlocksChart-<?php echo esc_attr( $cId ) ?>' data-attributes='<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>'></div>
 
 		<?php return ob_get_clean();
 	} // Render
