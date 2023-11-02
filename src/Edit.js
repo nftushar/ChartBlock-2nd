@@ -14,14 +14,7 @@ const Edit = (props) => {
   useEffect(() => {
     clientId && setAttributes({ cId: clientId });
   }, [clientId, setAttributes]);
-
-  // function updateChart(index, property, value) {
-  //   const newCharts = [...chart];
-  //   newCharts[index][property] = value;
-  //   setAttributes({ cards: newCharts });
-  // }
-
-
+ 
   return <>
     <Settings attributes={attributes} setAttributes={setAttributes} />
 
