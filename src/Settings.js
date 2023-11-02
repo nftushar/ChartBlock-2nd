@@ -128,7 +128,7 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
             {tab.name === "general" && (
               <PanelBody
                 className="bPlPanelBody"
-                title={__("Settings", "bar-chart")} >
+                title={__("Settings", "pai-chart")} >
                 <>
                   <FormFileUpload
                     className="mt20"
@@ -154,76 +154,7 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
                       })
                     }
                   />
-                  <NumberControl
-                    className="mt20"
-                    label={__("Chart Width")}
-                    isShiftStepEnabled={true}
-                    value={chartWidth}
-                    onChange={(val) =>
-                      setAttributes({
-                        chart: { ...chart, chartWidth: val },
-                      })
-                    }
-                    shiftStep={2}
-                  />
-                  <NumberControl
-                    className="mt20"
-                    label={__("Chart Height")}
-                    isShiftStepEnabled={true}
-                    value={chartHeight}
-                    onChange={(val) =>
-                      setAttributes({
-                        chart: { ...chart, chartHeight: val },
-                      })
-                    }
-                    shiftStep={2}
-                  />
-                  <RangeControl
-                    label={__("Border:", "bar-chart")}
-                    className="mt20"
-                    value={border}
-                    onChange={(val) =>
-                      setAttributes({
-                        chart: { ...chart, border: val },
-                      })
-                    }
-                    defaults={{ radius: "5px" }}
-                    min={0}
-                    max={10}
-                  />
 
-                  <RangeControl
-                    label="Border Radius"
-                    value={radius}
-                    onChange={(val) =>
-                      setAttributes({
-                        chart: { ...chart, radius: val },
-                      })
-                    }
-                    min={0}
-                    max={50}
-                  />
-                  <BColor label={__('Background Color', 'text-domain')} value={backgroundColor}
-                    onChange={(val) =>
-                      setAttributes({
-                        chart: { ...chart, backgroundColor: val },
-                      })
-                    } defaultColor='#0000' />
-
-                  {/* {console.table(chart)} */}
-                  {/* {chart.map((item, index) => (
- 
-                    <React.Fragment key={index}>
-                      <Background
-                        label={__("Background Color", "bar-chart")}
-                        value={item.bgColor}
-                        onChange={(val) =>
-                          updateChart(index, "bgColor", val)
-                        }
-                        isImage={false}
-                      />
-                    </React.Fragment>
-                  ))} */}
                 </>
               </PanelBody>
             )}
@@ -231,9 +162,63 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
             {tab.name === "style" && (
               <PanelBody
                 className="bPlPanelBody"
-                title={__("Title", "bar-chart")}
+                title={__("Title", "pai-chart")}
               >
-                {/* Your style settings components go here */}
+                <NumberControl
+                  className="mt20"
+                  label={__("Chart Width")}
+                  isShiftStepEnabled={true}
+                  value={chartWidth}
+                  onChange={(val) =>
+                    setAttributes({
+                      chart: { ...chart, chartWidth: val },
+                    })
+                  }
+                  shiftStep={2}
+                />
+                <NumberControl
+                  className="mt20"
+                  label={__("Chart Height")}
+                  isShiftStepEnabled={true}
+                  value={chartHeight}
+                  onChange={(val) =>
+                    setAttributes({
+                      chart: { ...chart, chartHeight: val },
+                    })
+                  }
+                  shiftStep={2}
+                />
+                <RangeControl
+                  label={__("Border:", "pai-chart")}
+                  className="mt20"
+                  value={border}
+                  onChange={(val) =>
+                    setAttributes({
+                      chart: { ...chart, border: val },
+                    })
+                  }
+                  defaults={{ radius: "5px" }}
+                  min={0}
+                  max={10}
+                />
+
+                <RangeControl
+                  label="Border Radius"
+                  value={radius}
+                  onChange={(val) =>
+                    setAttributes({
+                      chart: { ...chart, radius: val },
+                    })
+                  }
+                  min={0}
+                  max={50}
+                />
+                <BColor label={__('Background Color', 'text-domain')} value={backgroundColor}
+                  onChange={(val) =>
+                    setAttributes({
+                      chart: { ...chart, backgroundColor: val },
+                    })
+                  } defaultColor='#0000' />
               </PanelBody>
             )}
           </>

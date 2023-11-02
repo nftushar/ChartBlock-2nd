@@ -1,7 +1,7 @@
-=== Bar Chart ===
+=== Pai Chart ===
 Contributors: abuhayat,
 Donate link: https://gum.co/wpdonate/
-Tags: block, bar-chart, star, rating, Gutenberg block
+Tags: block, pai-chart, star, rating, Gutenberg block
 Requires at least: 5.0+
 Tested up to: 6.2.2
 Stable tag: 1.0.0
@@ -16,7 +16,7 @@ Short Description
 Large Description
 
 
-**[Demos](https://bblockswp.com/demo/bar-chart/)**
+**[Demos](https://bblockswp.com/demo/pai-chart/)**
 
 
 = Features =
@@ -24,8 +24,8 @@ Large Description
 
 
 = How to use =
-- First, install the bar-chart plugin
-- Add the bar-chart block from the block category called "Widgets" in the Gutenberg editor.
+- First, install the pai-chart plugin
+- Add the pai-chart block from the block category called "Widgets" in the Gutenberg editor.
 - You can change block settings from the right-side settings sidebar.
 - Enjoy!
 
@@ -60,25 +60,25 @@ Large Description
 
 = From Gutenberg Editor: =
 1. Go to the WordPress Block/Gutenberg Editor
-2. Search For **bar-chart**
-3. Click on the **bar-chart** to add the block
+2. Search For **pai-chart**
+3. Click on the **pai-chart** to add the block
 
 = Download & Upload: =
-1. Download the **bar-chart** plugin (*.zip file*)
+1. Download the **pai-chart** plugin (*.zip file*)
 2. In your admin area, go to the Plugins menu and click on **Add New**
-3. Click on **Upload Plugin** and choose the **`bar-chart.zip`** file and click on **Install Now**
+3. Click on **Upload Plugin** and choose the **`pai-chart.zip`** file and click on **Install Now**
 4. Activate the plugin and Enjoy!
 
 = Manually: =
-1. Download and upload the **bar-chart** plugin to the **`/wp-content/plugins/`** directory
+1. Download and upload the **pai-chart** plugin to the **`/wp-content/plugins/`** directory
 2. Activate the plugin through the Plugins menu in WordPress
 
 
 == Frequently Asked Questions ==
 
-= Is bar-chart free? =
+= Is pai-chart free? =
 
-Yes, bar-chart is a free Gutenberg block plugin.
+Yes, pai-chart is a free Gutenberg block plugin.
 
 = Does it work with any WordPress theme? =
 
@@ -94,12 +94,12 @@ You can use unlimited times as you want.
 
 = Where can I get support? =
 
-You can post your questions on the [support forum here](https://wordpress.org/support/plugin/bar-chart/)
+You can post your questions on the [support forum here](https://wordpress.org/support/plugin/pai-chart/)
 
 
 == Screenshots ==
 
-1. bar-chart
+1. pai-chart
 2. Settings
 
 

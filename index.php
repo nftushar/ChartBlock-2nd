@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: B Chart
- * Description: B Chart Gutenberg plugin: Streamline Gutenberg editing with easy-to-use, responsive bar-chart  and more..
+ * Plugin Name: Pai Chart
+ * Description: Pai Chart Gutenberg plugin: Streamline Gutenberg editing with easy-to-use, responsive pai-chart  and more..
  * Version: 1.0.0
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
- * Text Domain: bar-chart
+ * Text Domain: pai-chart
  */
 // ABS PATH
 if ( !defined( 'ABSPATH' ) ) { exit; }

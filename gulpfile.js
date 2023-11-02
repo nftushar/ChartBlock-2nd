@@ -24,6 +24,6 @@ exports.bundle = () => (
 		'!todo.txt',
 		'!webpack.config.js',
 	])
-		.pipe(zip('bar-chart.zip'))
+		.pipe(zip('pai-chart.zip'))
 		.pipe(gulp.dest('bundled'))
 );

@@ -1,15 +1,15 @@
 {
   "apiVersion": "1",
-  "name": "b-blocks/bar-chart",
-  "title": "Bar Chart",
-  "description": "Gutenberg editing with easy-to-use, responsive bar-chart and more.",
+  "name": "b-blocks/pai-chart",
+  "title": "Pai Chart",
+  "description": "Gutenberg editing with easy-to-use, responsive pai-chart and more.",
   "category": "media",
   "keywords": [
-    "bar-chart",
+    "pai-chart",
     "chart",
     "Gutenberg"
   ],
-  "textdomain": "bar-chart",
+  "textdomain": "pai-chart",
   "attributes": {
     "align": {
       "type": "string",
@@ -26,7 +26,6 @@
         "chartHeight": 555,
         "chartWidth": 555,
         "backgroundColor": "#F8F8F8",
-         
         "bgColor": [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",

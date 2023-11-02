@@ -24,7 +24,7 @@
 //         plugins: {
 //             title: {
 //                 display: true,
-//                 text: 'Chart js Bar Chart',
+//                 text: 'Chart js Pai Chart',
 //             },
 //             responsive: true,
 //             scales: {
