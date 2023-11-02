@@ -1,0 +1,76 @@
+# Copyright (C) 2023 bPlugins LLC
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: pie chart 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pie-chart\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-11-02T11:59:26+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: pie-chart\n"
+
+#. Plugin Name of the plugin
+msgid "pie chart"
+msgstr ""
+
+#. Description of the plugin
+msgid "pie chart Gutenberg plugin: Streamline Gutenberg editing with easy-to-use, responsive pie-chart  and more.."
+msgstr ""
+
+#. Author of the plugin
+msgid "bPlugins LLC"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://bplugins.com"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:645
+msgid "Settings"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:660
+msgid "Chart Type"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:683
+msgid "Title"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:710
+msgid "Border:"
+msgstr ""
+
+#: inc/block.json
+msgctxt "block title"
+msgid "Pie Chart"
+msgstr ""
+
+#: inc/block.json
+msgctxt "block description"
+msgid "Gutenberg editing with easy-to-use, responsive pie-chart and more."
+msgstr ""
+
+#: inc/block.json
+msgctxt "block keyword"
+msgid "pie-chart"
+msgstr ""
+
+#: inc/block.json
+msgctxt "block keyword"
+msgid "chart"
+msgstr ""
+
+#: inc/block.json
+msgctxt "block keyword"
+msgid "Gutenberg"
+msgstr ""

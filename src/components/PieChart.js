@@ -1,10 +1,10 @@
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, RadialLinearScale, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, RadialLinearScale, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement } from 'chart.js';
 import { Pie, Doughnut, PolarArea, Radar, Bar } from 'react-chartjs-2';
 import useFileData from '../hooks/useFileData';
 
 ChartJS.register(Tooltip, Legend, CategoryScale, RadialLinearScale, LinearScale, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement);
 
-
+ 
 
 const PieChart = ({ type, data }) => {
   const ChartType =
@@ -23,7 +23,7 @@ const PieChart = ({ type, data }) => {
   );
 };
 
-const ChartComponent = ({ attributes, setAttributes }) => {
+const ChartComponent = ({ attributes }) => {
   const { file, chart } = attributes;
   const { border, type, radius } = chart;
 
@@ -44,10 +44,12 @@ const ChartComponent = ({ attributes, setAttributes }) => {
     values = data.map((data) => data.value);
 
   } else {
+    // eslint-disable-next-line no-console
     console.error('Unsupported data type or empty/invalid JSON data.');
   }
 
   const chartData = {
+    // eslint-disable-next-line object-shorthand
     labels: labels,
     datasets: [
       {

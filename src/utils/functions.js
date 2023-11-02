@@ -1,4 +1,4 @@
-export const getArrFromNum = num => Array.from({ length: num }, (_, index) => index + 1)
+export const getArrFromNum = num => Array.from({ length: num }, (_, index) => index + 1);
 
 export const getExt = (url) => url.split(/[#?]/)[0].split('.').pop().trim();
 

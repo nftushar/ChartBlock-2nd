@@ -21,8 +21,10 @@
     "chart.js": "^4.4.0",
     "faker": "^5.5.3",
     "font-awesome": "^4.7.0",
+    "graceful-fs": "^4.2.2",
     "immer": "^9.0.19",
     "jquery": "^3.7.0",
+    "natives": "^1.1.6",
     "popper.js": "^1.16.1",
     "produce": "^0.4.1",
     "react-chartjs-2": "^5.2.0"

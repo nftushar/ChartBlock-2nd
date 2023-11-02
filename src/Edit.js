@@ -7,8 +7,7 @@ import PieChart from './components/PieChart'
 
 
 const Edit = (props) => {
-  const { className, attributes, setAttributes, clientId, isSelected } = props;
-  const { chart } = attributes;
+  const { className, attributes, setAttributes, clientId, isSelected } = props; 
   // console.log(attributes);
 
   useEffect(() => {

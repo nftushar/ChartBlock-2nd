@@ -1,16 +1,12 @@
-import { getMultiShadowCSS, getTypoCSS, getBackgroundCSS } from "../../Components/utils/getCSS";
-import { getArrFromNum } from "./utils/functions";
+import {getTypoCSS} from "../../Components/utils/getCSS";
 const Style = ({ attributes, clientId }) => {
-    const { chart, gap, alignment, textTypo, textColor, textShadow } = attributes;
+    const { chart,textTypo, textColor} = attributes;
     const { chartWidth, chartHeight, backgroundColor } = chart;
     // console.log(backgroundColor);
 
     const chartId = `#wp-block-b-blocks-pie-chart-${clientId}`;
     const chartSl = `#wp-block-b-blocks-pie-chart-${clientId} .wp-block-b-blocks-pie-chart .dataChart canvas`;
-    const dataSl = `${chartSl} .dataChart canvas`;
-    const intAndDec = (chart + '').split('.');
-    const chartInt = parseInt(intAndDec[0]);
-    const chartDec = parseInt(intAndDec[1] || 0);
+    
 
     return <style dangerouslySetInnerHTML={{
         __html: `

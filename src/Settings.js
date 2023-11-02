@@ -1,17 +1,16 @@
 import { __ } from "@wordpress/i18n";
-import { useState, useEffect } from 'react';
 import { InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TabPanel, FormFileUpload, SelectControl, RangeControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
-import { BorderControl, BColor, Background, InlineMediaUpload } from "../../Components";
+import { PanelBody, TabPanel,  SelectControl, RangeControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
+import { BColor, InlineMediaUpload } from "../../Components";
 import useFileData from './hooks/useFileData';
 
  
 
-const Settings = ({ attributes, setAttributes, updateChart }) => {
+const Settings = ({ attributes, setAttributes }) => {
 
-  const { file, jsonData: existingjsonData, xmlData: existingXmlData, csvData: existingCSVData, chart } = attributes;
+  const { file, chart } = attributes;
 
-  const { type, border, radius, bgColor, chartWidth, chartHeight, backgroundColor } = chart;
+  const { type, border, radius,  chartWidth, chartHeight, backgroundColor } = chart;
 
   const { fetchData } = useFileData(file);
  
@@ -37,13 +36,14 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
                     fetchData(val).then((data) => {
                       setAttributes(data);
                     }).catch((error) => {
+                      // eslint-disable-next-line no-console
                       console.error(error);
                     });
                   }} />
  
                   <SelectControl
                     className="mt20"
-                    label={__("Chart Type")}
+                    label={__("Chart Type", "pie-chart")}
                     labelPosition="left"
                     value={type}
                     options={[
