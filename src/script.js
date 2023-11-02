@@ -1,10 +1,10 @@
 import { createRoot } from 'react-dom';
 import "./style.scss";
 import Style from "./Style";
-import BarChart from './components/BarChart';
+import PieChart from './components/PieChart';
 
 document.addEventListener("DOMContentLoaded", () => {
-    const chartEls = document.querySelectorAll(".wp-block-b-blocks-pai-chart");
+    const chartEls = document.querySelectorAll(".wp-block-b-blocks-pie-chart");
     chartEls.forEach((chartEl) => {
         const attributes = JSON.parse(chartEl.dataset.attributes);
         const { cId } = attributes;
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         root.render(
             <>
                 <Style attributes={attributes} clientId={cId} />
-                <BarChart attributes={attributes} clientId={cId} />
+                <PieChart attributes={attributes} clientId={cId} />
             </>, chartEl);
         chartEl?.removeAttribute("data-attributes");
     });

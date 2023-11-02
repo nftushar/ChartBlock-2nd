@@ -1,15 +1,15 @@
 {
   "apiVersion": "1",
-  "name": "b-blocks/pai-chart",
-  "title": "Pai Chart",
-  "description": "Gutenberg editing with easy-to-use, responsive pai-chart and more.",
+  "name": "b-blocks/pie-chart",
+  "title": "Pie Chart",
+  "description": "Gutenberg editing with easy-to-use, responsive pie-chart and more.",
   "category": "media",
   "keywords": [
-    "pai-chart",
+    "pie-chart",
     "chart",
     "Gutenberg"
   ],
-  "textdomain": "pai-chart",
+  "textdomain": "pie-chart",
   "attributes": {
     "align": {
       "type": "string",

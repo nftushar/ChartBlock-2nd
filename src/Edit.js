@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Settings from "./Settings";
-import Style from "./Style";
-import BarChart from './components/BarChart';
+import Style from "./Style"; 
 import PieChart from './components/PieChart'
 // import FakerChart from './components/FakerChart';
 // Pie, Doughnut, PolarArea, Radar
@@ -29,8 +28,8 @@ const Edit = (props) => {
     <div className={className} id={`wp-block-b-blocks-b-chart-${clientId}`}>
       {!isSelected && <div className="mouse"></div>}
       <Style attributes={attributes} clientId={clientId} />
-      {/* <PieChart attributes={attributes} />   */}
-      <BarChart attributes={attributes} />
+      <PieChart attributes={attributes} />  
+      {/* <BarChart attributes={attributes} /> */}
 
       {/* Pie, Doughnut, PolarArea, Radar */}
     </div>

@@ -128,7 +128,7 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
             {tab.name === "general" && (
               <PanelBody
                 className="bPlPanelBody"
-                title={__("Settings", "pai-chart")} >
+                title={__("Settings", "pie-chart")} >
                 <>
                   <FormFileUpload
                     className="mt20"
@@ -162,7 +162,7 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
             {tab.name === "style" && (
               <PanelBody
                 className="bPlPanelBody"
-                title={__("Title", "pai-chart")}
+                title={__("Title", "pie-chart")}
               >
                 <NumberControl
                   className="mt20"
@@ -189,7 +189,7 @@ const Settings = ({ attributes, setAttributes, updateChart }) => {
                   shiftStep={2}
                 />
                 <RangeControl
-                  label={__("Border:", "pai-chart")}
+                  label={__("Border:", "pie-chart")}
                   className="mt20"
                   value={border}
                   onChange={(val) =>
