@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TabPanel, SelectControl, RangeControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
+import { PanelRow, PanelBody, TabPanel, SelectControl, RangeControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
 import { BColor, InlineMediaUpload } from "../../Components";
 import useFileData from './hooks/useFileData';
 
@@ -21,7 +21,7 @@ const Settings = ({ attributes, setAttributes }) => {
     newChart[property][index] = value;
     setAttributes({ chart: newChart });
   };
-  
+
 
 
 
@@ -59,7 +59,7 @@ const Settings = ({ attributes, setAttributes }) => {
                     value={type}
                     options={[
                       { label: "Bar", value: "Bar" },
-                      { label: "Chart", value: "Chart" },
+                      // { label: "Chart", value: "Chart" },
                       { label: "Line", value: "Line" },
                       { label: "Pie", value: "Pie" },
                       { label: "Doughnut", value: "Doughnut" },
@@ -139,21 +139,30 @@ const Settings = ({ attributes, setAttributes }) => {
                     })
                   } defaultColor='#0000' />
 
-                {bgColor.map((color, index) => (
-                  <BColor
-                    key={index}
-                    label={`Chart Background Color ${index + 1}`}
-                    value={color}
-                    onChange={(val) => updateChart("bgColor", val, index)}
-                  />
-                ))}
+                <PanelBody label={__('Background Color', 'text-domain')}>
+                  {bgColor.map((color, index) => (
+                    <PanelBody key={index}
+                      className="bPlPanelBody"
+                      title={`This is card ${index + 1}`}
+                      initialOpen={false}
+                    >
+                      <BColor
+                        key={index}
+                        label={`Chart Color ${index + 1}`}
+                        value={color}
+                        onChange={(val) => updateChart("bgColor", val, index)}
+                      />
+                    </PanelBody>
+                  ))}
+                </PanelBody>
+
 
               </PanelBody>
             )}
           </>
         )}
       </TabPanel>
-    </InspectorControls>
+    </InspectorControls >
   );
 
 };
