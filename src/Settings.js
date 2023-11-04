@@ -47,6 +47,7 @@ const Settings = ({ attributes, setAttributes }) => {
                     labelPosition="left"
                     value={type}
                     options={[
+                      { label: "Bar", value: "Bar" },
                       { label: "Pie", value: "Pie" },
                       { label: "Doughnut", value: "Doughnut" },
                       { label: "PolarArea", value: "PolarArea" },

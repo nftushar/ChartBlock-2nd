@@ -1,10 +1,10 @@
-import { Chart as ChartJS, CategoryScale, LinearScale, RadialLinearScale, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, RadialLinearScale,BarElement, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement } from 'chart.js';
 import { Pie, Doughnut, PolarArea, Radar, Bar } from 'react-chartjs-2';
 import useFileData from '../hooks/useFileData';
 
-ChartJS.register(Tooltip, Legend, CategoryScale, RadialLinearScale, LinearScale, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement);
+ChartJS.register(CategoryScale, RadialLinearScale, BarElement, LinearScale, ArcElement, LineElement, PointElement, Tooltip, Legend, Title, Legend, Filler,);
 
- 
+
 
 const PieChart = ({ type, data }) => {
   const ChartType =
