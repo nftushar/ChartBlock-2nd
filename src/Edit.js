@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import Settings from "./Settings";
 import Style from "./Style";
 // import FakerTest from './components/FakerTest';
-import PieChart from './components/PieChart';
-// import FakerChart from './components/FakerChart';
+import PieChart from './components/PieChart';     
 // Pie, Doughnut, PolarArea, Radar
 
 

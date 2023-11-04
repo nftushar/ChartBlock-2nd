@@ -24,6 +24,7 @@ const sampleData = [
   { label: 'Label 2', value: 34 },
 ];
 
+
 const data = {
   labels,
   datasets: [
@@ -41,7 +42,7 @@ const data = {
       borderWidth: 1,
     },
   ],
-};
+}; 
 
 function CustomDataTest() {
   return <Bar options={options} data={data} />;

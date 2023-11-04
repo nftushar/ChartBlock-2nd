@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom';
 import "./style.scss";
 import Style from "./Style";
 import PieChart from './components/PieChart';
-import FakerTest from './components/FakerTest';
+// import FakerTest from './components/FakerTest';
 
 document.addEventListener("DOMContentLoaded", () => {
     const chartEls = document.querySelectorAll(".wp-block-b-blocks-pie-chart");

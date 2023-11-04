@@ -47,7 +47,8 @@
           "rgba(255, 159, 64, 1)"
         ],
         "type": "Doughnut",
-        "labels": "January", 
+        "labels": "January",
+        "values": 23,
         "dataLabel": "T-Shirt",
         "border": 1,
         "radius": 1
