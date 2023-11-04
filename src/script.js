@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
         root.render(
             <> <div id={`wp-block-b-blocks-pie-chart-${cId}`} className="wp-block-b-blocks-pie-chart dataChart canvas dataChart revenueChart">
                 <Style attributes={attributes} clientId={cId} />
-                {/* <PieChart attributes={attributes} clientId={cId} /> */}
-                <FakerTest attributes={attributes} clientId={cId} />
+                <PieChart attributes={attributes} clientId={cId} />
+                {/* <FakerTest attributes={attributes} clientId={cId} /> */}
             </div>
             </>, chartEl);
         chartEl?.removeAttribute("data-attributes");

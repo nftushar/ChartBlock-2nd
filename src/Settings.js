@@ -48,6 +48,8 @@ const Settings = ({ attributes, setAttributes }) => {
                     value={type}
                     options={[
                       { label: "Bar", value: "Bar" },
+                      { label: "Chart", value: "Chart" },
+                      { label: "Line", value: "Line" },
                       { label: "Pie", value: "Pie" },
                       { label: "Doughnut", value: "Doughnut" },
                       { label: "PolarArea", value: "PolarArea" },

@@ -1,5 +1,5 @@
-import { Chart as ChartJS, CategoryScale, LinearScale, RadialLinearScale,BarElement, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement } from 'chart.js';
-import { Pie, Doughnut, PolarArea, Radar, Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, RadialLinearScale, BarElement, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement } from 'chart.js';
+import { Pie, Doughnut, PolarArea, Radar, Bar, Line } from 'react-chartjs-2';
 import useFileData from '../hooks/useFileData';
 
 ChartJS.register(CategoryScale, RadialLinearScale, BarElement, LinearScale, ArcElement, LineElement, PointElement, Tooltip, Legend, Title, Legend, Filler,);
@@ -9,10 +9,11 @@ ChartJS.register(CategoryScale, RadialLinearScale, BarElement, LinearScale, ArcE
 const PieChart = ({ type, data }) => {
   const ChartType =
     type === 'Bar' ? Bar :
-      type === 'PolarArea' ? PolarArea :
-        type === 'Doughnut' ? Doughnut :
-          type === 'Pie' ? Pie :
-            type === 'Radar' ? Radar : null;
+      type === 'Line' ? Line :
+        type === 'PolarArea' ? PolarArea :
+          type === 'Doughnut' ? Doughnut :
+            type === 'Pie' ? Pie :
+              type === 'Radar' ? Radar : null;
 
   return (
     <div className="wp-block-b-blocks-pie-chart">
