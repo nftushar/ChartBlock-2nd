@@ -18,7 +18,7 @@ const PieChart = ({ type, data }) => {
   );
 };
 
-const ChartComponent = ({  attributes, setAttributes }) => {
+const ChartComponent = ({ attributes, setAttributes }) => {
   const { file, chart } = attributes;
   const { border, type, radius, backgroundColor, borderColor } = chart;
 
@@ -41,8 +41,23 @@ const ChartComponent = ({  attributes, setAttributes }) => {
     console.error('Unsupported data type or empty/invalid JSON data.');
   }
 
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom"
+      },
+      title: {
+        display: true,
+        text: "Chart.js Bar Chart"
+      }
+    }
+  };
+
+
   const chartData = {
-    labels,    datasets: [
+    labels,
+    datasets: [
       {
         label: labels,
         data: values,
@@ -50,17 +65,30 @@ const ChartComponent = ({  attributes, setAttributes }) => {
         borderColor: borderColor || getDefaultBorderColor(),
         borderWidth: border,
         borderRadius: radius,
+        color: "#1165ed",
+
+
+        // fillColor: "rgba(255, 89, 114, 0.6)",
+        // strokeColor: "rgba(51, 51, 51, 1)",
+        // pointColor: "rgba(255, 89, 114, 1)",
+        // pointStrokeColor: "#fff",
+        // pointHighlightFill: "#fff",
+        // pointHighlightStroke: "rgba(151,187,205,1)",
+        // maintainAspectRatio: false,
+
+
+
       },
     ],
-    responsive: true,
+
   };
 
-  return <PieChart type={type} data={chartData} />;
+  return <PieChart type={type} data={chartData} options={options} />;
 };
 
 export default ChartComponent;
 
- 
+
 function getDefaultBackgroundColor() {
   return [
     'rgba(255, 99, 132, 0.2)',

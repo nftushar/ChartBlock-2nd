@@ -50,7 +50,7 @@ const Settings = ({ attributes, setAttributes }) => {
             {tab.name === "general" && (
               <PanelBody
                 className="bPlPanelBody"
-                title={__("Settings", "pie-chart")} >
+                title={__("Chart Settings", "pie-chart")} >
                 <>
 
                   <InlineMediaUpload value={file} types={['application/json', 'application/rss+xml', 'text/csv']} onChange={val => {
@@ -94,7 +94,7 @@ const Settings = ({ attributes, setAttributes }) => {
             {tab.name === "style" && (
               <PanelBody
                 className="bPlPanelBody"
-                title={__("Title", "pie-chart")}
+                title={__("Chart Style", "pie-chart")}
               >
                 <NumberControl
                   className="mt20"
