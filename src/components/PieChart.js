@@ -59,22 +59,12 @@ const ChartComponent = ({ attributes, setAttributes }) => {
     labels,
     datasets: [
       {
-        label: labels,
+        label: '',
         data: values,
         backgroundColor: backgroundColor || getDefaultBackgroundColor(),
         borderColor: borderColor || getDefaultBorderColor(),
         borderWidth: border,
-        borderRadius: radius,
-
-        
-        // color: "#1165ed",  
-         // fillColor: "rgba(255, 89, 114, 0.6)",
-        // strokeColor: "rgba(51, 51, 51, 1)",
-        // pointColor: "rgba(255, 89, 114, 1)",
-        // pointStrokeColor: "#fff",
-        // pointHighlightFill: "#fff",
-        // pointHighlightStroke: "rgba(151,187,205,1)",
-        // maintainAspectRatio: false,
+        borderRadius: radius, 
 
 
 

@@ -2,7 +2,7 @@
   "apiVersion": "1",
   "name": "b-blocks/pie-chart",
   "title": "Pie Chart",
-  "description": "Gutenberg editing with easy-to-use, responsive pie-chart and more.",
+  "description": "Easy-to-use, responsive Pie Chart and more..",
   "category": "media",
   "keywords": [
     "pie-chart",
@@ -57,10 +57,10 @@
     "padding": {
       "type": "object",
       "default": {
-        "top": "0px",
-        "right": "0x",
-        "bottom": "0px",
-        "left": "0px"
+        "top": "25px",
+        "right": "25x",
+        "bottom": "25px",
+        "left": "25px"
       }
     },
     "legend": {

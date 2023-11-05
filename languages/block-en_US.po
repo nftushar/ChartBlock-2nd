@@ -57,7 +57,7 @@ msgstr ""
 
 #: inc/block.json
 msgctxt "block description"
-msgid "Gutenberg editing with easy-to-use, responsive pie-chart and more."
+msgid "Easy-to-use, responsive Chart and more.."
 msgstr ""
 
 #: inc/block.json
