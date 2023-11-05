@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { InspectorControls } from "@wordpress/block-editor";
-import { PanelRow, PanelBody, TabPanel, SelectControl, RangeControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
+import { PanelBody, TabPanel, SelectControl, RangeControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
 import { BColor, InlineMediaUpload } from "../../Components";
 import useFileData from './hooks/useFileData';
 
@@ -17,7 +17,6 @@ const getRandomColor = () => {
 }
 
 
-
 const Settings = ({ attributes, setAttributes }) => {
 
   const { file, chart } = attributes;
@@ -28,6 +27,7 @@ const Settings = ({ attributes, setAttributes }) => {
 
   let { data } = useFileData(file);
   // console.log(data);
+
   const updateChart = (property, value, index) => {
     const newChart = { ...chart };
     newChart[property][index] = value;
@@ -155,8 +155,8 @@ const Settings = ({ attributes, setAttributes }) => {
 
                 <PanelBody label={__('Background Color', 'pie-chart')}>
                   {data.map((color, index) => (
-                    // console.log(color),
-                    <PanelBody key={index}
+                    <PanelBody
+                      key={index}
                       className="bPlPanelBody"
                       title={`This is Chart ${index + 1}`}
                       initialOpen={false}
@@ -164,21 +164,19 @@ const Settings = ({ attributes, setAttributes }) => {
                       <BColor
                         key={index}
                         label={`Chart Color ${index + 1}`}
-                        value={backgroundColor}
+                        value={backgroundColor[index]} 
                         onChange={(val) => updateChart("backgroundColor", val, index)}
                       />
-
                       <BColor
                         key={index}
                         label={`Chart border Color ${index + 1}`}
-                        value={borderColor}
+                        value={borderColor[index]} 
                         onChange={(val) => updateChart("borderColor", val, index)}
                       />
                     </PanelBody>
-
-
                   ))}
                 </PanelBody>
+
 
 
               </PanelBody>

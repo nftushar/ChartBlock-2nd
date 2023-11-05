@@ -36,7 +36,7 @@ const ChartComponent = ({  attributes, setAttributes }) => {
   if (Array.isArray(data) && data.length > 0 && data.every((data) => data && data.label && data.value)) {
     labels = data.map((data) => data.label);
     values = data.map((data) => data.value);
-    console.log(labels);
+    // console.log(labels);
   } else {
     console.error('Unsupported data type or empty/invalid JSON data.');
   }
