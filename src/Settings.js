@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TabPanel, SelectControl, RangeControl, __experimentalNumberControl as NumberControl,  __experimentalBoxControl as BoxControl } from "@wordpress/components";
+import { PanelBody, TabPanel, SelectControl, RangeControl, __experimentalNumberControl as NumberControl, __experimentalBoxControl as BoxControl, __experimentalUnitControl as UnitControl } from "@wordpress/components";
 import { BColor, InlineMediaUpload } from "../../Components";
 import useFileData from './hooks/useFileData';
 
@@ -20,7 +20,7 @@ const getRandomColor = () => {
 const Settings = ({ attributes, setAttributes }) => {
 
   const { file, chart, padding } = attributes;
-// console.log(padding);
+  // console.log(padding);
   const { type, border, radius, chartWidth, chartHeight, background, backgroundColor, borderColor, } = chart;
 
   const { fetchData } = useFileData(file);
@@ -106,42 +106,38 @@ const Settings = ({ attributes, setAttributes }) => {
                     "left": "0px"
                   }}
                   onChange={(value) => setAttributes({ padding: value })} />
-                <NumberControl
+                <UnitControl
                   className="mt20"
                   label={__("Chart Board Width", "pie-chart")}
-                  isShiftStepEnabled={true}
                   value={chartWidth}
                   onChange={(val) =>
                     setAttributes({
                       chart: { ...chart, chartWidth: val },
                     })
                   }
-                  shiftStep={2}
                 />
-                <NumberControl
+                <UnitControl
                   className="mt20"
                   label={__("Chart Height", "pie-chart")}
-                  isShiftStepEnabled={true}
                   value={chartHeight}
                   onChange={(val) =>
                     setAttributes({
                       chart: { ...chart, chartHeight: val },
                     })
                   }
-                  shiftStep={2}
                 />
+
                 <RangeControl
                   label={__("Border:", "pie-chart")}
                   className="mt20"
                   value={border}
                   onChange={(val) =>
-                    setAttributes({
-                      chart: { ...chart, border: val },
-                    })
+                    setAttributes({ chart: { ...chart, border: val }, })
                   }
                   defaults={{ radius: "5px" }}
                   min={0}
                   max={10}
+                  help={__("Add Chart Border in PX.", "pie-chart")}
                 />
 
                 <RangeControl

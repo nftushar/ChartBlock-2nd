@@ -65,10 +65,10 @@ const ChartComponent = ({ attributes, setAttributes }) => {
         borderColor: borderColor || getDefaultBorderColor(),
         borderWidth: border,
         borderRadius: radius,
-        color: "#1165ed",
 
-
-        // fillColor: "rgba(255, 89, 114, 0.6)",
+        
+        // color: "#1165ed",  
+         // fillColor: "rgba(255, 89, 114, 0.6)",
         // strokeColor: "rgba(51, 51, 51, 1)",
         // pointColor: "rgba(255, 89, 114, 1)",
         // pointStrokeColor: "#fff",

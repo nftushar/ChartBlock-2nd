@@ -27,8 +27,8 @@
       "type": "object",
       "default": {
         "test": "test",
-        "chartHeight": 550,
-        "chartWidth": 550,
+        "chartHeight": "550px",
+        "chartWidth": "550px",
         "background": "#F8F8F8",
         "backgroundColor": [
           "rgba(255, 99, 132, 0.2)",
