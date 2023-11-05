@@ -54,6 +54,15 @@
         "radius": 1
       }
     },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "right": "0x",
+        "bottom": "0px",
+        "left": "0px"
+      }
+    },
     "legend": {
       "position": {
         "type": "string",

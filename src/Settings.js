@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TabPanel, SelectControl, RangeControl, __experimentalNumberControl as NumberControl } from "@wordpress/components";
+import { PanelBody, TabPanel, SelectControl, RangeControl, __experimentalNumberControl as NumberControl,  __experimentalBoxControl as BoxControl } from "@wordpress/components";
 import { BColor, InlineMediaUpload } from "../../Components";
 import useFileData from './hooks/useFileData';
 
@@ -19,8 +19,8 @@ const getRandomColor = () => {
 
 const Settings = ({ attributes, setAttributes }) => {
 
-  const { file, chart } = attributes;
-
+  const { file, chart, padding } = attributes;
+// console.log(padding);
   const { type, border, radius, chartWidth, chartHeight, background, backgroundColor, borderColor, } = chart;
 
   const { fetchData } = useFileData(file);
@@ -96,6 +96,16 @@ const Settings = ({ attributes, setAttributes }) => {
                 className="bPlPanelBody"
                 title={__("Chart Style", "pie-chart")}
               >
+                <BoxControl
+                  label={__("Padding", "info-cards")}
+                  values={padding}
+                  resetValues={{
+                    "top": "0px",
+                    "right": "0x",
+                    "bottom": "0px",
+                    "left": "0px"
+                  }}
+                  onChange={(value) => setAttributes({ padding: value })} />
                 <NumberControl
                   className="mt20"
                   label={__("Chart Board Width", "pie-chart")}
@@ -164,13 +174,13 @@ const Settings = ({ attributes, setAttributes }) => {
                       <BColor
                         key={index}
                         label={`Chart Color ${index + 1}`}
-                        value={backgroundColor[index]} 
+                        value={backgroundColor[index]}
                         onChange={(val) => updateChart("backgroundColor", val, index)}
                       />
                       <BColor
                         key={index}
                         label={`Chart border Color ${index + 1}`}
-                        value={borderColor[index]} 
+                        value={borderColor[index]}
                         onChange={(val) => updateChart("borderColor", val, index)}
                       />
                     </PanelBody>
