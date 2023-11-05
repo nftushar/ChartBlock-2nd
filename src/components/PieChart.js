@@ -20,7 +20,7 @@ const PieChart = ({ type, data }) => {
 
 const ChartComponent = ({  attributes, setAttributes }) => {
   const { file, chart } = attributes;
-  const { border, type, radius, bgColor, borderColor } = chart;
+  const { border, type, radius, backgroundColor, borderColor } = chart;
 
   const sampleData = [
     { label: 'Label 1', value: 26 },
@@ -36,17 +36,17 @@ const ChartComponent = ({  attributes, setAttributes }) => {
   if (Array.isArray(data) && data.length > 0 && data.every((data) => data && data.label && data.value)) {
     labels = data.map((data) => data.label);
     values = data.map((data) => data.value);
+    console.log(labels);
   } else {
     console.error('Unsupported data type or empty/invalid JSON data.');
   }
 
   const chartData = {
-    labels: labels,
-    datasets: [
+    labels,    datasets: [
       {
-        label: '# of Votes',
+        label: labels,
         data: values,
-        backgroundColor: bgColor || getDefaultBackgroundColor(),
+        backgroundColor: backgroundColor || getDefaultBackgroundColor(),
         borderColor: borderColor || getDefaultBorderColor(),
         borderWidth: border,
         borderRadius: radius,

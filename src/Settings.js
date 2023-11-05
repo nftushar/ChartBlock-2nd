@@ -6,22 +6,33 @@ import useFileData from './hooks/useFileData';
 
 
 
+
+const getRandomColor = () => {
+  const letters = '0123456789abcdef';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+
+
 const Settings = ({ attributes, setAttributes }) => {
 
   const { file, chart } = attributes;
 
-  const { type, border, radius, chartWidth, chartHeight, backgroundColor, bgColor } = chart;
+  const { type, border, radius, chartWidth, chartHeight, background, backgroundColor, borderColor, } = chart;
 
   const { fetchData } = useFileData(file);
 
-
-
+  let { data } = useFileData(file);
+  // console.log(data);
   const updateChart = (property, value, index) => {
     const newChart = { ...chart };
     newChart[property][index] = value;
     setAttributes({ chart: newChart });
   };
-
 
 
 
@@ -46,6 +57,9 @@ const Settings = ({ attributes, setAttributes }) => {
                     setAttributes({ file: val })
                     fetchData(val).then((data) => {
                       setAttributes(data);
+                      const generatedColors = data.map(() => getRandomColor());
+
+                      setAttributes({ chart: { ...chart, backgroundColor: generatedColors.map(c => `${c}33`), borderColor: generatedColors } });
                     }).catch((error) => {
                       // eslint-disable-next-line no-console
                       console.error(error);
@@ -84,7 +98,7 @@ const Settings = ({ attributes, setAttributes }) => {
               >
                 <NumberControl
                   className="mt20"
-                  label={__("Chart Width")}
+                  label={__("Chart Board Width", "pie-chart")}
                   isShiftStepEnabled={true}
                   value={chartWidth}
                   onChange={(val) =>
@@ -96,7 +110,7 @@ const Settings = ({ attributes, setAttributes }) => {
                 />
                 <NumberControl
                   className="mt20"
-                  label={__("Chart Height")}
+                  label={__("Chart Height", "pie-chart")}
                   isShiftStepEnabled={true}
                   value={chartHeight}
                   onChange={(val) =>
@@ -131,28 +145,38 @@ const Settings = ({ attributes, setAttributes }) => {
                   min={0}
                   max={50}
                 />
-                <BColor label={__('Background Color', 'text-domain')}
-                  value={backgroundColor}
+                <BColor label={__('Background Color', 'pie-chart')}
+                  value={background}
                   onChange={(val) =>
                     setAttributes({
-                      chart: { ...chart, backgroundColor: val },
+                      chart: { ...chart, background: val },
                     })
                   } defaultColor='#0000' />
 
-                <PanelBody label={__('Background Color', 'text-domain')}>
-                  {bgColor.map((color, index) => (
+                <PanelBody label={__('Background Color', 'pie-chart')}>
+                  {data.map((color, index) => (
+                    // console.log(color),
                     <PanelBody key={index}
                       className="bPlPanelBody"
-                      title={`This is card ${index + 1}`}
+                      title={`This is Chart ${index + 1}`}
                       initialOpen={false}
                     >
                       <BColor
                         key={index}
                         label={`Chart Color ${index + 1}`}
-                        value={color}
-                        onChange={(val) => updateChart("bgColor", val, index)}
+                        value={backgroundColor}
+                        onChange={(val) => updateChart("backgroundColor", val, index)}
+                      />
+
+                      <BColor
+                        key={index}
+                        label={`Chart border Color ${index + 1}`}
+                        value={borderColor}
+                        onChange={(val) => updateChart("borderColor", val, index)}
                       />
                     </PanelBody>
+
+
                   ))}
                 </PanelBody>
 
