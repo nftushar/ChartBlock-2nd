@@ -22,7 +22,7 @@ const Style = ({ attributes, clientId }) => {
             height: ${chartHeight} !important;
             width: ${chartWidth} !important;
             background-color: ${background}; 
-            padding: ${getBoxValue(padding)} !important;
+            padding: ${getBoxValue(padding)};
           }
        
     `}}

@@ -73,7 +73,7 @@ const ChartComponent = ({ attributes, setAttributes }) => {
 
   };
 
-  return <PieChart type={type} data={chartData} options={options} />;
+  return <PieChart type={type} data={chartData} options={options} width="30%" />;
 };
 
 export default ChartComponent;

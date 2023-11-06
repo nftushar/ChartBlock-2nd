@@ -58,7 +58,7 @@
       "type": "object",
       "default": {
         "top": "25px",
-        "right": "25x",
+        "right": "25px",
         "bottom": "25px",
         "left": "25px"
       }

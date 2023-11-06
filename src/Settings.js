@@ -16,6 +16,29 @@ const getRandomColor = () => {
   return color;
 }
 
+function getDefaultBackgroundColor() {
+  return [
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(153, 102, 255, 0.2)',
+    'rgba(255, 159, 64, 0.2)',
+  ];
+}
+
+function getDefaultBorderColor() {
+  return [
+    'rgba(255, 99, 132, 1)',
+    'rgba(54, 162, 235, 1)',
+    'rgba(255, 206, 86, 1)',
+    'rgba(75, 192, 192, 1)',
+    'rgba(153, 102, 255, 1)',
+    'rgba(255, 159, 64, 1)',
+  ];
+}
+
+
 
 const Settings = ({ attributes, setAttributes }) => {
 
@@ -129,7 +152,7 @@ const Settings = ({ attributes, setAttributes }) => {
                   values={padding}
                   resetValues={{
                     "top": "0px",
-                    "right": "0x",
+                    "right": "0px",
                     "bottom": "0px",
                     "left": "0px"
                   }}
@@ -162,28 +185,45 @@ const Settings = ({ attributes, setAttributes }) => {
               </PanelBody>
 
               <PanelBody className="bPlPanelBody" title={__('Data Colors', 'pie-chart')} initialOpen={false}>
-                {data.map((color, index) => (
-                  <PanelBody
-                    key={index}
-                    className="bPlPanelBody"
-                    title={`Data ${index + 1}`}
-                    initialOpen={false}
-                  >
-                    <BColor
+                {data.length > 0 ? (
+                  data.map((color, index) => (
+                    <PanelBody
                       key={index}
+                      className="bPlPanelBody"
+                      title={`Data ${index + 1}`}
+                      initialOpen={false}
+                    >
+                      <BColor
+                        key={index}
+                        label={`Background Color`}
+                        value={backgroundColor[index]}
+                        onChange={(val) => updateChart("backgroundColor", val, index)}
+                      />
+                      <BColor
+                        key={index}
+                        label={`Border Color`}
+                        value={borderColor[index]}
+                        onChange={(val) => updateChart("borderColor", val, index)}
+                      />
+                    </PanelBody>
+                  ))
+                ) : (
+                  // Render default colors when data is empty
+                  <>
+                    <BColor
                       label={`Background Color`}
-                      value={backgroundColor[index] }
-                      onChange={(val) => updateChart("backgroundColor", val, index)}
+                      value={getDefaultBackgroundColor()}
+                      onChange={(val) => updateChart("backgroundColor", val, 0)}
                     />
                     <BColor
-                      key={index}
                       label={`Border Color`}
-                      value={borderColor[index]}
-                      onChange={(val) => updateChart("borderColor", val, index)}
+                      value={getDefaultBorderColor()}
+                      onChange={(val) => updateChart("borderColor", val, 0)}
                     />
-                  </PanelBody>
-                ))}
+                  </>
+                )}
               </PanelBody>
+
 
             </>}
           </>
