@@ -45,35 +45,34 @@ const ChartComponent = ({ attributes, setAttributes }) => {
     responsive: true,
     plugins: {
       legend: {
-        position: "bottom"
+        position: 'top',
       },
       title: {
         display: true,
-        text: "Chart.js Bar Chart"
-      }
-    }
+        text: 'Chart.js Line Chart',
+      },
+    },
   };
 
+  // console.log(values);
 
   const chartData = {
-    labels,
+    labels: data.map((d) => d.label),
     datasets: [
       {
         label: '',
-        data: values,
+        data: data.map((d) => d.value),
         backgroundColor: backgroundColor || getDefaultBackgroundColor(),
         borderColor: borderColor || getDefaultBorderColor(),
         borderWidth: border,
-        borderRadius: radius, 
-
-
-
+        borderRadius: radius,
+        borderJoinStyle: "miter",
       },
     ],
-
   };
 
-  return <PieChart type={type} data={chartData} options={options} width="30%" />;
+
+  return <PieChart type={type} data={chartData} options={options} width="30%"> <p>Hello Fallback World</p></PieChart>;
 };
 
 export default ChartComponent;

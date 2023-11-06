@@ -16,12 +16,12 @@ const Style = ({ attributes, clientId }) => {
           ${chartId} { 
             display:flex; 
             justify-content: center;  
+            background-color: ${background}; 
           }
 
           ${chartSl}{
             height: ${chartHeight} !important;
             width: ${chartWidth} !important;
-            background-color: ${background}; 
             padding: ${getBoxValue(padding)};
           }
        

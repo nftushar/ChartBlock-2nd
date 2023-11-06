@@ -1,4 +1,40 @@
-<people>
+<table>
+  <thead>
+  	<tr>
+      <th>Data 1</th>
+      <th>Data 2</th>
+      <th>Data 3</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>5</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>6</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<!-- <people>
   <person> 
     <label>Uploaded XML 1</label>
     <value>11</value>
@@ -11,4 +47,4 @@
     <label>Uploaded XML 3</label>
     <value>44</value>
   </person>
-</people>
+</people> -->

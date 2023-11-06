@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: pie chart
- * Description: pie chart Gutenberg plugin: Streamline Gutenberg editing with easy-to-use, responsive pie-chart  and more..
+ * Plugin Name: Pie Chart
+ * Description: Easy-to-use, responsive Pie Chart and more..
  * Version: 1.0.0
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
