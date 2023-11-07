@@ -1,0 +1,26 @@
+<table>
+  <tr> 
+    <label>January</label>
+    <value>24</value>
+  </tr>
+  <tr> 
+    <label>February</label>
+    <value>16</value>
+  </tr>
+  <tr> 
+    <label>March</label>
+    <value>30</value>
+  </tr>
+  <tr> 
+    <label>April</label>
+    <value>25</value>
+  </tr>
+  <tr>
+    <label>May</label>
+    <value>46</value>
+  </tr>
+  <tr>
+    <label>June</label>
+    <value>15</value>
+  </tr>
+</table>

@@ -8,6 +8,7 @@ ChartJS.register(CategoryScale, RadialLinearScale, BarElement, LinearScale, ArcE
 
 const PieChart = ({ type, data }) => {
   const ChartType = getChartType(type);
+  // console.log(data.labels);
 
   return (
     <div className="wp-block-b-blocks-pie-chart">
@@ -20,6 +21,7 @@ const PieChart = ({ type, data }) => {
 
 const ChartComponent = ({ attributes, setAttributes }) => {
   const { file, chart } = attributes;
+
   const { border, type, radius, backgroundColor, borderColor } = chart;
 
   const sampleData = [
@@ -28,6 +30,9 @@ const ChartComponent = ({ attributes, setAttributes }) => {
   ];
 
   let { data } = useFileData(file);
+
+  // console.log(data);
+
 
   data = data.length ? data : sampleData;
 
@@ -57,11 +62,11 @@ const ChartComponent = ({ attributes, setAttributes }) => {
   // console.log(values);
 
   const chartData = {
-    labels: data.map((d) => d.label),
+    labels,
     datasets: [
       {
         label: '',
-        data: data.map((d) => d.value),
+        data: values,
         backgroundColor: backgroundColor || getDefaultBackgroundColor(),
         borderColor: borderColor || getDefaultBorderColor(),
         borderWidth: border,
