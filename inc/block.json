@@ -46,6 +46,7 @@
           "rgba(153, 102, 255, 1)",
           "rgba(255, 159, 64, 1)"
         ],
+        "title":"This title",
         "type": "Doughnut",
         "label": "January",
         "values": 23,

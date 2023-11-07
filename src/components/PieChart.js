@@ -19,10 +19,10 @@ const PieChart = ({ type, data }) => {
   );
 };
 
-const ChartComponent = ({ attributes, setAttributes }) => {
+const ChartComponent = ({ attributes }) => {
   const { file, chart } = attributes;
-
-  const { border, type, radius, backgroundColor, borderColor } = chart;
+// console.log(chart);
+  const { border, type, radius, backgroundColor, borderColor, title } = chart;
 
   const sampleData = [
     { label: 'Label 1', value: 26 },
@@ -31,9 +31,6 @@ const ChartComponent = ({ attributes, setAttributes }) => {
 
   let { data } = useFileData(file);
 
-  // console.log(data);
-
-
   data = data.length ? data : sampleData;
 
   let labels, values;
@@ -41,7 +38,6 @@ const ChartComponent = ({ attributes, setAttributes }) => {
   if (Array.isArray(data) && data.length > 0 && data.every((data) => data && data.label && data.value)) {
     labels = data.map((data) => data.label);
     values = data.map((data) => data.value);
-    // console.log(labels);
   } else {
     console.error('Unsupported data type or empty/invalid JSON data.');
   }
@@ -59,26 +55,24 @@ const ChartComponent = ({ attributes, setAttributes }) => {
     },
   };
 
-  // console.log(values);
-
   const chartData = {
-    labels,
+    labels: labels, // Use the array of labels here
     datasets: [
-      {
-        label: '',
+      { 
+        label: title, // Use the dataset label here
         data: values,
         backgroundColor: backgroundColor || getDefaultBackgroundColor(),
         borderColor: borderColor || getDefaultBorderColor(),
         borderWidth: border,
         borderRadius: radius,
-        borderJoinStyle: "miter",
+        borderJoinStyle: 'miter',
       },
     ],
   };
 
-
-  return <PieChart type={type} data={chartData} options={options} width="30%"> <p>Hello Fallback World</p></PieChart>;
+  return <PieChart type={type} data={chartData} options={options} width="30%" />;
 };
+
 
 export default ChartComponent;
 
