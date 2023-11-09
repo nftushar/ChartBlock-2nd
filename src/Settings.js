@@ -246,31 +246,6 @@ const Settings = ({ attributes, setAttributes, data }) => {
                   max={100}
                 />
               </PanelBody>
-              <PanelBody className="bPlPanelBody" title={__('Data Colors', 'pie-chart')} initialOpen={false}>
-                {datasets && Array.isArray(datasets) && datasets.map((color, index) => (
-                  <PanelBody
-                    key={index}
-                    className="bPlPanelBody"
-                    title={`Data ${index + 1}`}
-                    initialOpen={false}
-                  >
-                    <BColor
-                      key={index}
-                      label={`Background Color`}
-                      value={backgroundColor && Array.isArray(backgroundColor) ? backgroundColor[index] : ""}
-                      onChange={(val) => updateChart("backgroundColor", val, index)}
-                    />
-                    <BColor
-                      key={index}
-                      label={`Border Color`}
-                      value={borderColor && Array.isArray(borderColor) ? borderColor[index] : ""}
-                      onChange={(val) => updateChart("borderColor", val, index)}
-                    />
-                  </PanelBody>
-                ))}
-
-              </PanelBody>
-
             </>}
           </>
         )}
