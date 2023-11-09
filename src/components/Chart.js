@@ -1,20 +1,19 @@
-import { useState, useEffect } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, RadialLinearScale, BarElement, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement } from 'chart.js';
 import { Pie, Doughnut, PolarArea, Radar, Bar, Line } from 'react-chartjs-2';
 
 ChartJS.register(CategoryScale, RadialLinearScale, BarElement, LinearScale, ArcElement, LineElement, PointElement, Tooltip, Legend, Title, Legend, Filler);
 
-import useFileData from '../hooks/useFileData2';
+// import useFileData from '../hooks/useFileData2';
 
 const MyChart = ({ attributes, data }) => {
-    const { file, chart, chartData } = attributes;
-    const { border, type, radius, backgroundColor, borderColor, title } = chart;
+    const { chart, chartData } = attributes;
+    const { type } = chart;
 
     const options = {
         responsive: true,
         plugins: {
-            legend: {
-                position: 'top',
+            legend:{
+                position: 'top'
             },
             title: {
                 display: true,
@@ -23,7 +22,9 @@ const MyChart = ({ attributes, data }) => {
         },
     };
 
+    // How 
     const { labels = [], datasets = [] } = data;
+
     const cData = {
         labels,
         datasets: datasets.map((dataset, index) => {

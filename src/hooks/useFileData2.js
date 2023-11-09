@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getExt } from '../utils/functions';
+import { getExt } from '../utils/functions'; 
+
 
 const useFileData = (file) => {
   const [data, setData] = useState([]);
@@ -57,6 +58,7 @@ const useFileData = (file) => {
 
               const [labelsStr, ...datasetsArr] = lines;
               const labelsArr = labelsStr?.replace(/["'\s\r]/g, '').split(',');
+              // eslint-disable-next-line no-unused-vars
               const [__, ...labels] = labelsArr;
 
               const datasets = datasetsArr?.length > 0 ? datasetsArr?.map(d => {

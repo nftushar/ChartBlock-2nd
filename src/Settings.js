@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TabPanel, PanelRow, SelectControl, RangeControl, TextControl, __experimentalBoxControl as BoxControl, __experimentalNumberControl as NumberControl, __experimentalUnitControl as UnitControl, Tooltip } from "@wordpress/components";
+import { PanelBody, TabPanel, PanelRow, SelectControl, RangeControl, __experimentalBoxControl as BoxControl, __experimentalNumberControl as NumberControl, __experimentalUnitControl as UnitControl, Tooltip } from "@wordpress/components";
 import produce from 'immer';
 
 import { BColor, InlineMediaUpload, Label } from "../../Components";
@@ -21,9 +21,9 @@ const getRandomColor = () => {
 
 const Settings = ({ attributes, setAttributes, data }) => {
 
-  const { file, chart, chartData, padding } = attributes;
-  // console.log(padding);
-  const { title, type, border, radius, chartWidth, chartHeight, background, backgroundColor, borderColor, } = chart;
+  const { file, chart, chartData, chartAlign, padding } = attributes;
+  console.log(chartAlign);
+  const { type, border, radius, width, height, background, backgroundColor, borderColor, } = chart;
 
   const { fetchData } = useFileData(file);
 
@@ -103,7 +103,6 @@ const Settings = ({ attributes, setAttributes, data }) => {
                   value={type}
                   options={[
                     { label: "Bar", value: "Bar" },
-                    // { label: "Chart", value: "Chart" },
                     { label: "Line", value: "Line" },
                     { label: "Pie", value: "Pie" },
                     { label: "Doughnut", value: "Doughnut" },
@@ -168,10 +167,10 @@ const Settings = ({ attributes, setAttributes, data }) => {
                 <UnitControl
                   label={__("Width", "pie-chart")}
                   labelPosition='left'
-                  value={chartWidth}
+                  value={width}
                   onChange={(val) =>
                     setAttributes({
-                      chart: { ...chart, chartWidth: val },
+                      chart: { ...chart, width: val },
                     })
                   }
                 />
@@ -179,10 +178,10 @@ const Settings = ({ attributes, setAttributes, data }) => {
                   className="mt20"
                   label={__("Height", "pie-chart")}
                   labelPosition='left'
-                  value={chartHeight}
+                  value={height}
                   onChange={(val) =>
                     setAttributes({
-                      chart: { ...chart, chartHeight: val },
+                      chart: { ...chart, height: val },
                     })
                   }
                 />
@@ -194,7 +193,17 @@ const Settings = ({ attributes, setAttributes, data }) => {
                       chart: { ...chart, background: val },
                     })
                   } defaultColor='#0000' />
-
+                <SelectControl
+                  label={__("Alignment", "info-cards")}
+                  labelPosition="left"
+                  value={chartAlign}
+                  onChange={(val) => setAttributes({ chartAlign: val })}
+                  options={[
+                    { label: "Left", value: "left" },
+                    { label: "Center", value: "center" },
+                    { label: "Right", value: "right" },
+                  ]}
+                />
                 <BoxControl
                   label={__("Padding", "pie-chart")}
                   values={padding}
@@ -232,7 +241,7 @@ const Settings = ({ attributes, setAttributes, data }) => {
                 />
               </PanelBody>
               <PanelBody className="bPlPanelBody" title={__('Data Colors', 'pie-chart')} initialOpen={false}>
-                {data.map((color, index) => (
+                {datasets && Array.isArray(datasets) && datasets.map((color, index) => (
                   <PanelBody
                     key={index}
                     className="bPlPanelBody"
@@ -242,17 +251,18 @@ const Settings = ({ attributes, setAttributes, data }) => {
                     <BColor
                       key={index}
                       label={`Background Color`}
-                      value={backgroundColor[index]}
+                      value={backgroundColor && Array.isArray(backgroundColor) ? backgroundColor[index] : ""}
                       onChange={(val) => updateChart("backgroundColor", val, index)}
                     />
                     <BColor
                       key={index}
                       label={`Border Color`}
-                      value={borderColor[index]}
+                      value={borderColor && Array.isArray(borderColor) ? borderColor[index] : ""}
                       onChange={(val) => updateChart("borderColor", val, index)}
                     />
                   </PanelBody>
                 ))}
+
               </PanelBody>
 
             </>}

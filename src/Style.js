@@ -2,29 +2,29 @@ import { getTypoCSS } from "../../Components/utils/getCSS";
 import { getBoxValue } from "../../Components/utils/functions";
 
 const Style = ({ attributes, clientId }) => {
-  const { chart, textTypo, textColor, padding } = attributes;
-  const { chartWidth, chartHeight, background } = chart; 
+  const { chart, textTypo, chartAlign, padding } = attributes;
+  const { width, height, background } = chart;
 
-  const chartId = `#wp-block-b-blocks-pie-chart-${clientId}`;
-  const chartSl = `${chartId} .wp-block-b-blocks-pie-chart .dataChart canvas`;
+  const mainSl = `#bBlocksPieChart-${clientId}`;
+  const pieChartSl = `${mainSl} .bBlocksPieChart`;
+  const canvasSl = `${pieChartSl} canvas`;
 
 
   return <style dangerouslySetInnerHTML={{
     __html: ` ${getTypoCSS(``, textTypo)?.googleFontLink}
-        ${getTypoCSS(`${chartSl} .chartPrefix`, textTypo)?.styles}
+        ${getTypoCSS(`${pieChartSl} .chartPrefix`, textTypo)?.styles}
 
-          ${chartId} { 
-            display:flex; 
-            justify-content: center;  
-            background-color: ${background}; 
-          }
-
-          ${chartSl}{
-            height: ${chartHeight} !important;
-            width: ${chartWidth} !important;
+          ${mainSl} {
             padding: ${getBoxValue(padding)};
+            text-align: ${chartAlign}; 
           }
-       
+          ${pieChartSl}{
+            width: ${width};
+            height : ${height};
+          }
+          ${canvasSl}{
+            background-color: ${background};
+          }
     `}}
   />
 }

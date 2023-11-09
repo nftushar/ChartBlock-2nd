@@ -22,12 +22,12 @@
     "file": {
       "type": "string",
       "default": ""
-    },
+    }, 
     "chart": {
       "type": "object",
       "default": {
-        "chartWidth": "550px",
-        "chartHeight": "550px",
+        "width": "80%",
+        "height": "450px",
         "background": "#F8F8F8",
         "title": "This title",
         "type": "Doughnut"
@@ -72,6 +72,10 @@
         ]
       }
     },
+    "chartAlign": {
+			"type": "string",
+			"default": "center"
+		},
     "padding": {
       "type": "object",
       "default": {

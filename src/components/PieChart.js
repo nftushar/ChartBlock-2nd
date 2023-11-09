@@ -1,7 +1,7 @@
-import React, { MouseEvent, useRef }  from 'react';
+import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, RadialLinearScale, BarElement, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement } from 'chart.js';
 
-import { Pie, Doughnut, PolarArea, Radar, Bar, Line, Chart, getDatasetAtEvent,getElementAtEvent, getElementsAtEvent, } from 'react-chartjs-2';
+import { Pie, Doughnut, PolarArea, Radar, Bar, Line} from 'react-chartjs-2';
 
 import useFileData from '../hooks/useFileData';
 
@@ -40,6 +40,7 @@ const ChartComponent = ({ attributes }) => {
     labels = data.map((data) => data.label);
     values = data.map((data) => data.value);
   } else {
+    // eslint-disable-next-line no-console
     console.error('Unsupported data type or empty/invalid JSON data.');
   }
 
@@ -62,6 +63,7 @@ const ChartComponent = ({ attributes }) => {
   };
 
   const chartData = {
+    // eslint-disable-next-line object-shorthand
     labels: labels, // Use the array of labels here
     datasets: [
       { 

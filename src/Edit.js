@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useState, useEffect } from "react";
 import Settings from "./Settings";
 import Style from "./Style";
@@ -44,10 +45,14 @@ const Edit = (props) => {
   return <>
     <Settings attributes={attributes} setAttributes={setAttributes} data={data} />
 
-    <div className={className} id={`wp-block-b-blocks-pie-chart-${clientId}`}>
+    <div className={className} id={`bBlocksPieChart-${clientId}`}>
       {!isSelected && <div className="mouse"></div>}
       <Style attributes={attributes} clientId={clientId} />
-      <Chart attributes={attributes} data={data} />
+
+      <div className='bBlocksPieChart'>
+
+        <Chart attributes={attributes} data={data} />
+      </div>
       {/* <PieChart attributes={attributes} />   */}
       {/* <FakerTest attributes={attributes} /> */}
       {/* <BarChart attributes={attributes} /> */}
