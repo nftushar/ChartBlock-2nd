@@ -1,10 +1,12 @@
 import { __ } from "@wordpress/i18n";
 import { InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TabPanel, SelectControl, RangeControl, TextControl, __experimentalBoxControl as BoxControl, __experimentalUnitControl as UnitControl } from "@wordpress/components";
-import { BColor, InlineMediaUpload } from "../../Components";
-import useFileData from './hooks/useFileData';
+import { PanelBody, TabPanel, PanelRow, SelectControl, RangeControl, TextControl, __experimentalBoxControl as BoxControl, __experimentalNumberControl as NumberControl, __experimentalUnitControl as UnitControl, Tooltip } from "@wordpress/components";
+import produce from 'immer';
 
+import { BColor, InlineMediaUpload, Label } from "../../Components";
 
+import useFileData from './hooks/useFileData2';
+import { pointStyles } from './utils/options';
 
 
 const getRandomColor = () => {
@@ -17,15 +19,13 @@ const getRandomColor = () => {
 }
 
 
-const Settings = ({ attributes, setAttributes }) => {
+const Settings = ({ attributes, setAttributes, data }) => {
 
-  const { file, chart, padding } = attributes;
+  const { file, chart, chartData, padding } = attributes;
   // console.log(padding);
   const { title, type, border, radius, chartWidth, chartHeight, background, backgroundColor, borderColor, } = chart;
 
   const { fetchData } = useFileData(file);
-
-  let { data } = useFileData(file);
 
   const updateChart = (property, value, index) => {
     const newChart = { ...chart };
@@ -33,7 +33,21 @@ const Settings = ({ attributes, setAttributes }) => {
     setAttributes({ chart: newChart });
   };
 
+  const updateChartData = (key, index, val, t = false, i = false) => {
+    const newData = produce(chartData, draft => {
+      if (false !== t && false !== i) {
+        draft[key][index][t][i] = val;
+      } else if (false !== t) {
+        draft[key][index][t] = val;
+      } else {
+        draft[key][index] = val;
+      }
+    });
 
+    setAttributes({ chartData: newData });
+  }
+
+  const { labels = [], datasets = [] } = data;
 
   return (
     <InspectorControls>
@@ -46,30 +60,36 @@ const Settings = ({ attributes, setAttributes }) => {
       >
         {(tab) => (
           <>
-            {tab.name === "general" && (
+            {tab.name === "general" && <>
               <PanelBody
                 className="bPlPanelBody"
                 title={__("Settings", "pie-chart")} >
-
-                <TextControl
-                  label={__("Additional CSS Class)", "pie-chart")}
-                  value={title}
-                  onChange={(val) =>
-                    setAttributes({
-                      chart: { ...chart, title: val },
-                    })
-                  } 
-                />
-
                 <InlineMediaUpload value={file}
                   label={__("Upload File ( JSON, XML, CSV )", "pie-chart")}
                   types={['application/json', 'application/rss+xml', 'text/csv']}
                   onChange={val => {
-                    setAttributes({ file: val })
+                    setAttributes({ file: val });
+
                     fetchData(val).then((data) => {
-                      setAttributes(data);
-                      const generatedColors = data.map(() => getRandomColor());
-                      setAttributes({ chart: { ...chart, backgroundColor: generatedColors.map(c => `${c}33`), borderColor: generatedColors } });
+                      const { labels = [], datasets = [] } = data;
+                      const randomColors = datasets.map(() => {
+                        const colors = labels.map(() => getRandomColor());
+
+                        return {
+                          backgroundColor: colors.map(c => `${c}33`),
+                          borderColor: colors
+                        }
+                      });
+
+                      randomColors?.map((rc, i) => {
+                        const { backgroundColor, borderColor } = rc;
+
+                        const newChart = produce(chartData, draft => {
+                          draft['datasets'][i]['backgroundColor'] = backgroundColor;
+                          draft['datasets'][i]['borderColor'] = borderColor;
+                        });
+                        setAttributes({ chartData: newChart });
+                      });
                     }).catch((error) => {
                       // eslint-disable-next-line no-console
                       console.error(error);
@@ -97,7 +117,48 @@ const Settings = ({ attributes, setAttributes }) => {
                   }
                 />
               </PanelBody>
-            )}
+
+
+              <PanelBody lassName='bPlPanelBody' title={__('Data', 'pie-chart')} initialOpen={false}>
+                {chartData.datasets?.map((dataset, datasetIndex) => {
+                  const { backgroundColor, borderColor, borderWidth, pointRadius, pointHoverRadius, pointStyle } = dataset;
+
+                  return <PanelBody key={datasetIndex} className='bPlPanelBody' title={__(`${datasets?.[datasetIndex]?.label}:`, 'pie-chart')} initialOpen={0 !== datasetIndex ? false : true}>
+                    {labels.map((label, labelIndex) => <PanelRow key={labelIndex} className='bChartDatasetEdit'>
+                      <Label className=''>{__(`${label}:`, 'pie-chart')}</Label>
+
+                      <Tooltip text={__('Dataset Background Color', 'pie-chart')} position='top center'>
+                        <BColor className='chartBGColor' label='' value={backgroundColor[labelIndex]} onChange={val => updateChartData('datasets', datasetIndex, val, 'backgroundColor', labelIndex)} />
+                      </Tooltip>
+
+                      <Tooltip text={__('Dataset Border Color', 'pie-chart')} position='top center'>
+                        <BColor label='' value={borderColor[labelIndex]} onChange={val => updateChartData('datasets', datasetIndex, val, 'borderColor', labelIndex)} />
+                      </Tooltip>
+                    </PanelRow>
+                    )}
+
+                    <NumberControl className='mt20' label={__('Border Width:')} labelPosition='left' value={borderWidth} onChange={val => {
+                      const newChart = produce(chartData, draft => {
+                        draft['datasets'][datasetIndex]['borderWidth'] = parseFloat(val);
+                        draft['datasets'][datasetIndex]['hoverBorderWidth'] = parseFloat(val);
+                      });
+                      setAttributes({ chartData: newChart });
+                    }} />
+
+                    {['Line', 'Radar'].includes(type) && <>
+                      <NumberControl className='mt15' label={__('Point Size:')} labelPosition='left' value={pointRadius} onChange={val => updateChartData('datasets', datasetIndex, parseFloat(val), 'pointRadius')} />
+
+                      <NumberControl className='mt15' label={__('Point Hover Size:')} labelPosition='left' value={pointHoverRadius} onChange={val => updateChartData('datasets', datasetIndex, parseFloat(val), 'pointHoverRadius')} />
+                    </>}
+
+                    <PanelRow className='mt10'>
+                      <Label className=''>{__('Point Style:', 'pie-chart')}</Label>
+                      <SelectControl value={pointStyle} onChange={val => updateChartData('datasets', datasetIndex, val, 'pointStyle')} options={pointStyles} />
+                    </PanelRow>
+                  </PanelBody>
+                })}
+              </PanelBody>
+            </>}
 
             {tab.name === "style" && <>
               <PanelBody
@@ -170,8 +231,6 @@ const Settings = ({ attributes, setAttributes }) => {
                   max={100}
                 />
               </PanelBody>
-
-              {console.log(data)}
               <PanelBody className="bPlPanelBody" title={__('Data Colors', 'pie-chart')} initialOpen={false}>
                 {data.map((color, index) => (
                   <PanelBody

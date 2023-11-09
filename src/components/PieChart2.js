@@ -1,8 +1,7 @@
-import React, { MouseEvent, useRef }  from 'react';
+import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, RadialLinearScale, BarElement, Title, Tooltip, Legend, ArcElement, Filler, LineElement, PointElement } from 'chart.js';
 
-import { Pie, Doughnut, PolarArea, Radar, Bar, Line, Chart, getDatasetAtEvent,getElementAtEvent, getElementsAtEvent, } from 'react-chartjs-2';
-
+import { Pie, Doughnut, PolarArea, Radar, Bar, Line } from 'react-chartjs-2';
 import useFileData from '../hooks/useFileData';
 
 ChartJS.register(CategoryScale, RadialLinearScale, BarElement, LinearScale, ArcElement, LineElement, PointElement, Tooltip, Legend, Title, Legend, Filler);
@@ -45,11 +44,6 @@ const ChartComponent = ({ attributes }) => {
 
   const options = {
     responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
     plugins: {
       legend: {
         position: 'top',
@@ -71,7 +65,6 @@ const ChartComponent = ({ attributes }) => {
         borderColor: borderColor || getDefaultBorderColor(),
         borderWidth: border,
         borderRadius: radius,
-        fill:false,        
         borderJoinStyle: 'miter',
       },
     ],

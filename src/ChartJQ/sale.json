@@ -1,0 +1,34 @@
+{
+    "labels": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June"
+    ],
+    "datasets": [
+        {
+            "label": "T-Shirts Sell 2023",
+            "data": [
+                3,
+                9,
+                10,
+                16,
+                14,
+                16
+            ]
+        },
+        {
+            "label": "Shoes Sell 2023",
+            "data": [
+                5,
+                7,
+                12,
+                14,
+                13,
+                17
+            ]
+        }
+    ]
+}

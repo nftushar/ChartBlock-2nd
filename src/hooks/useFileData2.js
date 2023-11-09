@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getExt, readCSVFile } from '../utils/functions';
+import { getExt } from '../utils/functions';
 
 const useFileData = (file) => {
   const [data, setData] = useState([]);
@@ -25,25 +25,46 @@ const useFileData = (file) => {
               resolve(data);
             } else if (isXml) {
               const xmlData = new DOMParser().parseFromString(data, 'application/xml');
-              const children = xmlData.children?.[0]?.children;
+              const labelsAndDatasets = xmlData.children?.[0]?.children;
 
-              if (children?.length === 0 || children === undefined) {
-                reject('Invalid XML structure: Missing or empty elements');
+              if (labelsAndDatasets?.length !== 2 || labelsAndDatasets === undefined) {
+                reject('Invalid XML structure!');
               }
 
-              const newData = [];
-              children?.length > 0 &&
-                [].slice.call(children)?.map((c, i) => {
-                  const label = c.querySelector('label').innerHTML;
-                  const value = c.querySelector('value').innerHTML;
+              const labelsEl = labelsAndDatasets[0]?.children;
+              const datasetsEl = labelsAndDatasets[1]?.children;
 
-                  newData[i] = { label, value };
+              const labels = labelsEl?.length > 0 ? [].slice.call(labelsEl)?.map(l => l.innerHTML) : [];
+              const datasets = datasetsEl?.length > 0 ? [].slice.call(datasetsEl)?.map(d => {
+                const label = d.querySelector('label').innerHTML;
+
+                const dataEls = d.querySelectorAll('data');
+                const data = [];
+                dataEls?.forEach((d, i) => {
+                  data[i] = parseInt(d.innerHTML);
                 });
 
-              resolve(newData);
+                return ({ label, data });
+              }) : { label: '', data: [] };
+
+              resolve({ labels, datasets });
             } else if (isCsv) {
-              const csvData = readCSVFile(data);
-              resolve(csvData);
+              const lines = data.split('\n');
+
+              if (lines?.length < 2 || !lines) {
+                reject('Invalid CSV structure!');
+              }
+
+              const [labelsStr, ...datasetsArr] = lines;
+              const labelsArr = labelsStr?.replace(/["'\s\r]/g, '').split(',');
+              const [__, ...labels] = labelsArr;
+
+              const datasets = datasetsArr?.length > 0 ? datasetsArr?.map(d => {
+                const dataset = d.replace(/["'\s\r]/g, '').split(',');
+                const [label, ...data] = dataset;
+                return { label, data };
+              }) : {};
+              resolve({ labels, datasets });
             } else {
               reject('Unsupported file format. Please upload a JSON, XML, or CSV file.');
             }

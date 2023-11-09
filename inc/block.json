@@ -26,33 +26,50 @@
     "chart": {
       "type": "object",
       "default": {
-        "test": "test",
-        "chartHeight": "550px",
         "chartWidth": "550px",
+        "chartHeight": "550px",
         "background": "#F8F8F8",
-        "backgroundColor": [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)"
-        ],
-        "borderColor": [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)"
-        ],
-        "title":"This title",
-        "type": "Doughnut",
-        "label": "January",
-        "values": 23,
-        "dataLabel": "T-Shirt",
-        "border": 1,
-        "radius": 1
+        "title": "This title",
+        "type": "Doughnut"
+      }
+    },
+    "chartData": {
+      "type": "object",
+      "default": {
+        "datasets": [
+          {
+            "backgroundColor": [
+              "#ff638433",
+              "#36a28733"
+            ],
+            "borderColor": [
+              "#ff6384",
+              "#36a287"
+            ],
+            "tension": 0.4,
+            "borderWidth": 2,
+            "hoverBorderWidth": 2,
+            "pointRadius": 3,
+            "pointHoverRadius": 4,
+            "pointStyle": "triangle"
+          },
+          {
+            "backgroundColor": [
+              "#ffce5633",
+              "#4bc0c033"
+            ],
+            "borderColor": [
+              "#ffce56",
+              "#4bc0c0"
+            ],
+            "tension": 0.4,
+            "borderWidth": 2,
+            "hoverBorderWidth": 2,
+            "pointRadius": 3,
+            "pointHoverRadius": 4,
+            "pointStyle": "triangle"
+          }
+        ]
       }
     },
     "padding": {
