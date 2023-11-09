@@ -22,7 +22,7 @@ const getRandomColor = () => {
 const Settings = ({ attributes, setAttributes, data }) => {
 
   const { file, chart, chartData, chartAlign, padding } = attributes;
-  console.log(chartAlign);
+  // console.log(chartAlign);
   const { type, border, radius, width, height, background, backgroundColor, borderColor, } = chart;
 
   const { fetchData } = useFileData(file);
@@ -72,6 +72,7 @@ const Settings = ({ attributes, setAttributes, data }) => {
 
                     fetchData(val).then((data) => {
                       const { labels = [], datasets = [] } = data;
+
                       const randomColors = datasets.map(() => {
                         const colors = labels.map(() => getRandomColor());
 
@@ -81,15 +82,16 @@ const Settings = ({ attributes, setAttributes, data }) => {
                         }
                       });
 
-                      randomColors?.map((rc, i) => {
-                        const { backgroundColor, borderColor } = rc;
 
-                        const newChart = produce(chartData, draft => {
+                      const newChart = produce(chartData, draft => {
+                        randomColors?.map((rc, i) => {
+                          const { backgroundColor, borderColor } = rc;
+
                           draft['datasets'][i]['backgroundColor'] = backgroundColor;
                           draft['datasets'][i]['borderColor'] = borderColor;
                         });
-                        setAttributes({ chartData: newChart });
                       });
+                      setAttributes({ chartData: newChart });
                     }).catch((error) => {
                       // eslint-disable-next-line no-console
                       console.error(error);
@@ -126,12 +128,16 @@ const Settings = ({ attributes, setAttributes, data }) => {
                     {labels.map((label, labelIndex) => <PanelRow key={labelIndex} className='bChartDatasetEdit'>
                       <Label className=''>{__(`${label}:`, 'pie-chart')}</Label>
 
-                      <Tooltip text={__('Dataset Background Color', 'pie-chart')} position='top center'>
-                        <BColor className='chartBGColor' label='' value={backgroundColor[labelIndex]} onChange={val => updateChartData('datasets', datasetIndex, val, 'backgroundColor', labelIndex)} />
+                      <Tooltip text={__('Background Color', 'pie-chart')} position='top center' delay={300}>
+                        <span>
+                          <BColor className='mt0' label='' value={backgroundColor[labelIndex]} onChange={val => updateChartData('datasets', datasetIndex, val, 'backgroundColor', labelIndex)} />
+                        </span>
                       </Tooltip>
 
-                      <Tooltip text={__('Dataset Border Color', 'pie-chart')} position='top center'>
-                        <BColor label='' value={borderColor[labelIndex]} onChange={val => updateChartData('datasets', datasetIndex, val, 'borderColor', labelIndex)} />
+                      <Tooltip text={__('Border Color', 'pie-chart')} position='top center' delay={300}>
+                        <span style={{ marginLeft: '20px' }}>
+                          <BColor className='mt0' label='' value={borderColor[labelIndex]} onChange={val => updateChartData('datasets', datasetIndex, val, 'borderColor', labelIndex)} />
+                        </span>
                       </Tooltip>
                     </PanelRow>
                     )}
