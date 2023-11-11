@@ -38,44 +38,28 @@
         "datasets": [
           {
             "backgroundColor": [
-              "#ff638433",
-              "#36a28733"
-            ],
-            "borderColor": [
-              "#ff6384",
-              "#36a287"
-            ],
-            "tension": 0.4,
-            "borderWidth": 2,
-            "hoverBorderWidth": 2,
-            "pointRadius": 3,
-            "pointHoverRadius": 4,
-            "pointStyle": "triangle"
-          },
-          {
-            "backgroundColor": [
-              "#ff638433",
-              "#36a28733"
-            ],
-            "borderColor": [
-              "#ff6384",
-              "#36a287"
-            ],
-            "tension": 0.4,
-            "borderWidth": 2,
-            "hoverBorderWidth": 2,
-            "pointRadius": 3,
-            "pointHoverRadius": 4,
-            "pointStyle": "triangle"
-          },
-          {
-            "backgroundColor": [
               "#ffce5633",
               "#4bc0c033"
             ],
             "borderColor": [
               "#ffce56",
               "#4bc0c0"
+            ],
+            "tension": 0.4,
+            "borderWidth": 2,
+            "hoverBorderWidth": 2,
+            "pointRadius": 3,
+            "pointHoverRadius": 4,
+            "pointStyle": "triangle"
+          },
+          {
+            "backgroundColor": [
+              "#4bc0c033",
+              "#ffce5633"
+            ],
+            "borderColor": [
+              "#4bc0c0",
+              "#ffce56"
             ],
             "tension": 0.4,
             "borderWidth": 2,
@@ -103,18 +87,15 @@
     "legend": {
       "position": {
         "type": "string",
-        "default": "top",
-        "description": "Choose legend position from the list."
+        "default": "top"
       },
       "color": {
         "type": "string",
-        "default": "#333333",
-        "description": "Set legend text/label color."
+        "default": "#333333"
       },
       "pointStyle": {
         "type": "boolean",
-        "default": true,
-        "description": "Enable or disable legend point style."
+        "default": true
       }
     },
     "textShadow": {

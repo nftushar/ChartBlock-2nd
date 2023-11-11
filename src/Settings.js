@@ -64,7 +64,7 @@ const Settings = ({ attributes, setAttributes, data }) => {
               <PanelBody
                 className="bPlPanelBody"
                 title={__("Settings", "pie-chart")} >
-                <InlineMediaUpload value={file}
+                {/* <InlineMediaUpload value={file}
                   label={__("Upload File ( JSON, XML, CSV )", "pie-chart")}
                   types={['application/json', 'application/rss+xml', 'text/csv']}
                   onChange={val => {
@@ -81,8 +81,6 @@ const Settings = ({ attributes, setAttributes, data }) => {
                           borderColor: colors
                         }
                       });
-
-
                       const newChart = produce(chartData, draft => {
                         randomColors?.map((rc, i) => {
                           const { backgroundColor, borderColor } = rc;
@@ -91,12 +89,59 @@ const Settings = ({ attributes, setAttributes, data }) => {
                           draft['datasets'][i]['borderColor'] = borderColor;
                         });
                       });
+                      // console.log(newChart);
                       setAttributes({ chartData: newChart });
                     }).catch((error) => {
                       // eslint-disable-next-line no-console
                       console.error(error);
                     });
-                  }} />
+                  }} /> */}
+
+                <InlineMediaUpload
+                  value={file}
+                  label={__("Upload File ( JSON, XML, CSV )", "pie-chart")}
+                  types={['application/json', 'application/rss+xml', 'text/csv']}
+                  onChange={val => {
+                    setAttributes({ file: val });
+
+                    fetchData(val)
+                      .then((data) => {
+                        const { labels = [], datasets = [] } = data;
+
+                        const randomColors = datasets.map(() => {
+                          const colors = labels.map(() => getRandomColor());
+
+                          return {
+                            backgroundColor: colors.map(c => `${c}33`),
+                            borderColor: colors,
+                          };
+                        });
+
+                        const newChart = produce(chartData, (draft) => {
+                          draft.labels = labels; // Reset labels
+                          draft.datasets = datasets.map((dataset, i) => {
+                            const { backgroundColor, borderColor } = randomColors[i];
+
+                            return {
+                              ...dataset,
+                              backgroundColor,
+                              borderColor,
+                            };
+                          });
+                        });
+
+                        setAttributes({ chartData: newChart });
+                      })
+                      .catch((error) => {
+                        // Handle error
+                        console.error(error);
+                      });
+                  }}
+                />
+
+
+
+
 
                 <SelectControl
                   className="mt20"
@@ -119,13 +164,14 @@ const Settings = ({ attributes, setAttributes, data }) => {
                 />
               </PanelBody>
 
-
               <PanelBody lassName='bPlPanelBody' title={__('Data', 'pie-chart')} initialOpen={false}>
                 {chartData.datasets?.map((dataset, datasetIndex) => {
                   const { backgroundColor, borderColor, borderWidth, pointRadius, pointHoverRadius, pointStyle } = dataset;
-
+                  // return <PanelBody key={datasetIndex} className='bPlPanelBody' title={__(`${datasets?.[datasetIndex]?.label}:`, 'pie-chart')} initialOpen={0 !== datasetIndex ? false : true}>
                   return <PanelBody key={datasetIndex} className='bPlPanelBody' title={__(`${datasets?.[datasetIndex]?.label}:`, 'pie-chart')} initialOpen={0 !== datasetIndex ? false : true}>
+
                     {labels.map((label, labelIndex) => <PanelRow key={labelIndex} className='bChartDatasetEdit'>
+
                       <Label className=''>{__(`${label}:`, 'pie-chart')}</Label>
 
                       <Tooltip text={__('Background Color', 'pie-chart')} position='top center' delay={300}>
@@ -220,56 +266,7 @@ const Settings = ({ attributes, setAttributes, data }) => {
                     "left": "0px"
                   }}
                   onChange={(value) => setAttributes({ padding: value })} />
-
-                {/* <RangeControl
-                  className="mt20"
-                  label={__("Border (px):", "pie-chart")}
-                  value={border}
-                  onChange={(val) =>
-                    setAttributes({ chart: { ...chart, border: val }, })
-                  }
-                  defaults={{ radius: "5px" }}
-                  min={0}
-                  max={50}
-                />
-
-                <RangeControl
-                  className="mt20"
-                  label="Border Radius (px):"
-                  value={radius}
-                  onChange={(val) =>
-                    setAttributes({
-                      chart: { ...chart, radius: val },
-                    })
-                  }
-                  min={0}
-                  max={100}
-                /> */}
               </PanelBody>
-              {/* <PanelBody className="bPlPanelBody" title={__('Data Colors', 'pie-chart')} initialOpen={false}>
-                {datasets && Array.isArray(datasets) && datasets.map((color, index) => (
-                  <PanelBody
-                    key={index}
-                    className="bPlPanelBody"
-                    title={`Data ${index + 1}`}
-                    initialOpen={false}
-                  >
-                    <BColor
-                      key={index}
-                      label={`Background Color`}
-                      value={backgroundColor && Array.isArray(backgroundColor) ? backgroundColor[index] : ""}
-                      onChange={(val) => updateChart("backgroundColor", val, index)}
-                    />
-                    <BColor
-                      key={index}
-                      label={`Border Color`}
-                      value={borderColor && Array.isArray(borderColor) ? borderColor[index] : ""}
-                      onChange={(val) => updateChart("borderColor", val, index)}
-                    />
-                  </PanelBody>
-                ))}
-
-              </PanelBody> */}
 
             </>}
           </>
