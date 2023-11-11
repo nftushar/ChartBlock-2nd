@@ -1,2 +1,4 @@
 1. Need to Add Chart download Option As PNG,
-2. Set a condition on Point Style: Option, based on the Charts
+2. Set a condition on Point Style: Option, based on the Charts,
+3. The Chart Plugin icon need to fix,
+4. 
