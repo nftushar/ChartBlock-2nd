@@ -33,7 +33,7 @@ class PieChartPlugin{
         return $mimes;
     }
     function wpCheckFiletypeAndExt( $data, $file, $filename, $mimes, $real_mime=null ){
-		// If file extension is 2 or more 
+	 
 		$f_sp = explode( '.', $filename );
 		$f_exp_count = count( $f_sp );
 

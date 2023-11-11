@@ -28,9 +28,8 @@
       "default": {
         "width": "80%",
         "height": "450px",
-        "background": "#F8F8F8",
-        "title": "This title",
-        "type": "Doughnut"
+        "background": "#F8F8F8", 
+        "type": "Bar"
       }
     },
     "chartData": {

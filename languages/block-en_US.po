@@ -2,24 +2,24 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: pie chart 1.0.0\n"
+"Project-Id-Version: Pie Chart 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pie-chart\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-11-02T11:59:26+00:00\n"
+"POT-Creation-Date: 2023-11-09T13:11:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: pie-chart\n"
 
 #. Plugin Name of the plugin
-msgid "pie chart"
+msgid "Pie Chart"
 msgstr ""
 
 #. Description of the plugin
-msgid "pie chart Gutenberg plugin: Streamline Gutenberg editing with easy-to-use, responsive pie-chart  and more.."
+msgid "Easy-to-use, responsive Pie Chart and more.."
 msgstr ""
 
 #. Author of the plugin
@@ -31,23 +31,109 @@ msgid "http://bplugins.com"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:645
+#: dist/editor.js:626
+msgid "Circle"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:627
+msgid "Cross"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:628
+msgid "Cross Rot"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:629
+msgid "Dash"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:630
+msgid "Line"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:631
+msgid "Rect"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:632
+msgid "Rect Rounded"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:633
+msgid "Rect Rot"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:634
+msgid "Star"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:635
+msgid "Triangle"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:702
 msgid "Settings"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:660
+#: dist/editor.js:704
+msgid "Upload File ( JSON, XML, CSV )"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:739
 msgid "Chart Type"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:683
-msgid "Title"
+#: dist/editor.js:759
+msgid "Data"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:710
-msgid "Border:"
+#: dist/editor.js:767
+#: dist/editor.js:831
+msgid "Background Color"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:773
+msgid "Border Color"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:796
+msgid "Point Style:"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:807
+msgid "Chart"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:810
+msgid "Width"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:821
+msgid "Height"
+msgstr ""
+
+#: dist/editor.js:1
+#: dist/editor.js:850
+msgid "Padding"
 msgstr ""
 
 #: inc/block.json
@@ -57,7 +143,7 @@ msgstr ""
 
 #: inc/block.json
 msgctxt "block description"
-msgid "Easy-to-use, responsive Chart and more.."
+msgid "Easy-to-use, responsive Pie Chart and more.."
 msgstr ""
 
 #: inc/block.json

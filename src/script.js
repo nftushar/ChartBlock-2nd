@@ -1,8 +1,7 @@
 import { createRoot } from 'react-dom';
 import "./style.scss";
 import Style from "./Style";
-import PieChart from './components/PieChart';
-// import FakerTest from './components/FakerTest';
+import Chart from './components/Chart'; 
 
 document.addEventListener("DOMContentLoaded", () => {
     const chartEls = document.querySelectorAll(".wp-block-b-blocks-pie-chart");
@@ -13,11 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const root = createRoot(chartEl);
 
         root.render(
-            <> <div id={`wp-block-b-blocks-pie-chart-${cId}`} className="wp-block-b-blocks-pie-chart dataChart canvas dataChart revenueChart">
-                <Style attributes={attributes} clientId={cId} />
-                <PieChart attributes={attributes} clientId={cId} />
-                {/* <FakerTest attributes={attributes} clientId={cId} /> */}
-            </div>
+            <>
+                <div className="wp-block-b-blocks-pie-chart"
+                 id={`wp-block-b-blocks-pie-chart-${cId}`}>
+                    <Style attributes={attributes} clientId={cId} />
+                    <Chart attributes={attributes} clientId={cId} /> 
+                </div>
             </>, chartEl);
         chartEl?.removeAttribute("data-attributes");
     });

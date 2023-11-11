@@ -5,7 +5,7 @@ import Style from "./Style";
 // import FakerTest from './components/FakerTest';
 // import PieChart from './components/PieChart';     
 import Chart from './components/Chart';
-import useFileData from './hooks/useFileData2';
+import useChartData from './hooks/useChartData';
 // Pie, Doughnut, PolarArea, Radar
 
 
@@ -17,47 +17,15 @@ const Edit = (props) => {
     clientId && setAttributes({ cId: clientId });
   }, [clientId, setAttributes]);
 
-  const { fetchData } = useFileData(file);
-  const [data, setData] = useState({
-    labels: ['First', 'Second'],
-    datasets: [
-      {
-        label: 'Data 1',
-        data: [26, 34]
-      },
-      {
-        label: 'Data 2',
-        data: [22, 18]
-      }
-    ]
-  });
-
-  useEffect(() => {
-    fetchData(file)
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [file]);
+  const { data } = useChartData(file);
 
   return <>
     <Settings attributes={attributes} setAttributes={setAttributes} data={data} />
 
-    <div className={className} id={`bBlocksPieChart-${clientId}`}>
+    <div className={className} id={`wp-block-b-blocks-pie-chart-${clientId}`}>
       {!isSelected && <div className="mouse"></div>}
       <Style attributes={attributes} clientId={clientId} />
-
-      <div className='bBlocksPieChart'>
-
-        <Chart attributes={attributes} data={data} />
-      </div>
-      {/* <PieChart attributes={attributes} />   */}
-      {/* <FakerTest attributes={attributes} /> */}
-      {/* <BarChart attributes={attributes} /> */}
-
-      {/* Pie, Doughnut, PolarArea, Radar */}
+      <Chart attributes={attributes} data={data} />
     </div>
   </>;
 };

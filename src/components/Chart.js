@@ -3,16 +3,19 @@ import { Pie, Doughnut, PolarArea, Radar, Bar, Line } from 'react-chartjs-2';
 
 ChartJS.register(CategoryScale, RadialLinearScale, BarElement, LinearScale, ArcElement, LineElement, PointElement, Tooltip, Legend, Title, Legend, Filler);
 
-// import useFileData from '../hooks/useFileData2';
+import useChartData from '../hooks/useChartData';
 
-const MyChart = ({ attributes, data }) => {
-    const { chart, chartData } = attributes;
+const MyChart = ({ attributes }) => {
+    const { chart, chartData, file } = attributes;
     const { type } = chart;
+
+    const { data } = useChartData(file);
 
     const options = {
         responsive: true,
+        // border:
         plugins: {
-            legend:{
+            legend: {
                 position: 'top'
             },
             title: {
