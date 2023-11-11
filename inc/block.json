@@ -22,20 +22,36 @@
     "file": {
       "type": "string",
       "default": ""
-    }, 
+    },
     "chart": {
       "type": "object",
       "default": {
         "width": "80%",
         "height": "450px",
-        "background": "#F8F8F8", 
-        "type": "Bar"
+        "background": "#F8F8F8",
+        "type": "Doughnut"
       }
     },
     "chartData": {
       "type": "object",
       "default": {
         "datasets": [
+          {
+            "backgroundColor": [
+              "#ff638433",
+              "#36a28733"
+            ],
+            "borderColor": [
+              "#ff6384",
+              "#36a287"
+            ],
+            "tension": 0.4,
+            "borderWidth": 2,
+            "hoverBorderWidth": 2,
+            "pointRadius": 3,
+            "pointHoverRadius": 4,
+            "pointStyle": "triangle"
+          },
           {
             "backgroundColor": [
               "#ff638433",
@@ -72,9 +88,9 @@
       }
     },
     "chartAlign": {
-			"type": "string",
-			"default": "center"
-		},
+      "type": "string",
+      "default": "center"
+    },
     "padding": {
       "type": "object",
       "default": {

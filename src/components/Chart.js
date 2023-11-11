@@ -37,8 +37,10 @@ const MyChart = ({ attributes }) => {
             return {
                 label,
                 data,
-                backgroundColor: backgroundColor || ["#ff638433", "#36a28733"],
-                borderColor: borderColor || ["#ff6384", "#36a287"],
+                backgroundColor: backgroundColor || ["#ff638433", "#36a28733", "#36a28733"],
+                // backgroundColor:   ["#36a287", "#36a28733", "#36a28733"],
+                // borderColor: ["#ff6384", "#36a287", "#36a287"],
+                borderColor: borderColor || ["#ff6384", "#36a287", "#36a287"],
                 tension,
                 borderWidth,
                 hoverBorderWidth,
