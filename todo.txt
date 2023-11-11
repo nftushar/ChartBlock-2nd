@@ -1,1 +1,2 @@
 1. Need to Add Chart download Option As PNG,
+2. Set a condition on Point Style: Option, based on the Charts
