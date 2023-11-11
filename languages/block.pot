@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-11-11T08:26:00+00:00\n"
+"POT-Creation-Date: 2023-11-11T11:53:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: pie-chart\n"
@@ -86,53 +86,53 @@ msgid "Settings"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:704
+#: dist/editor.js:738
 msgid "Upload File ( JSON, XML, CSV )"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:739
+#: dist/editor.js:784
 msgid "Chart Type"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:759
+#: dist/editor.js:803
 msgid "Data"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:767
-#: dist/editor.js:831
+#: dist/editor.js:813
+#: dist/editor.js:877
 msgid "Background Color"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:773
+#: dist/editor.js:819
 msgid "Border Color"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:796
+#: dist/editor.js:842
 msgid "Point Style:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:807
+#: dist/editor.js:853
 msgid "Chart"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:810
+#: dist/editor.js:856
 msgid "Width"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:821
+#: dist/editor.js:867
 msgid "Height"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:850
+#: dist/editor.js:896
 msgid "Padding"
 msgstr ""
 

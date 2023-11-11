@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useState, useEffect } from "react";
 import useFileData from './useFileData';
 
@@ -22,7 +23,7 @@ const useChartData = (file) => {
       .then((data) => {
         setData(data);
       })
-      .catch((error) => {
+      .catch((error) => { 
         console.log(error);
       });
   }, [file]);
